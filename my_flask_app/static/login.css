@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background-color: #cccdd0; /* Change to the desired color */
+    background-color: #cccdd0;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -15,8 +15,8 @@ header {
     border-right: 10px solid black;
     border-left: 10px solid black;
     background-image: url('https://lh3.googleusercontent.com/pw/AIL4fc9GAkgrbU3-pSq8_ePqQGW64m1IrgMZuCEMg72M5z0cNFk4wzVyfYt511_RvSlT72w4OoDHVDh9W5eKK7t2w0lLVyYf94tNqcIE-5V0W40DOm7590XrFcVRhVD6EQTfWV8G4rQhvfdR9Y3i2InIQUrRMZocVWE3iYBO2_imo3V3gzMT_oLBCYVlIHAmlZDMxYBDatotHAyODw3mGvLpE3uUfR0X1k3WS3FL3fcu5F89EPwaSC6yG7CxYZ9RF-gLL2D84sVFX_2Ih7KIe7lpzMjNgBhxFwEvujfO4Z12MzOHzkaHIMH1smxglc6Bk0suCTUXbFdmqm5-h44Il4TV847nk5neczEhWV_p_WjNRMGnS7Q-4O823U5kWg2N4s13MfeZGaUeAXDP4OYhHa3gQxMQ-ajHqmIsCZZgEjia2JB2btgs-KDZJfRE4SBFhGxCIBpw4hI2gbg-1TD5WpavSQMl5V-k4KO2OSUCfWWWHqC1xD0uA342e2CiKd4UuxuKtxL6HszPGa0zumVUhqMgJndPd_ZofktyVGnQ7WmZHNZy2wdKLMbQkUD1Mlv4twW7glc23d-HezdzUNhgQLHaXP6UHsW3gFshvqlBin6cb07rv89sG-_73ozhs1B3D24uv1_2yGppPLBNXx7nXLdGhVQp-BiZZgKWR0DldH8DPh3Nod2R7wRmQ_Y5eUMBgZV3IXXB0dBlkYbAjtgZOPx55noVBQPHH674uATylS-KtvGIMzO_6Mng3qibNxA2onrgJ6n3jYsrCsQrMDWqTRqHb2BRaYVbxV4O9ZUM_ysAUegLZhNU1AGogr5XvZTDhT1hAsfn1I7gFebpQGa8n0gxaop8arEjpX20xROcEwx9a7dToqO_JMw-eXlfbLrsMiwD9Oi4M3bTa1n5kHpYRmj-DNTINQ=w1641-h923-s-no?authuser=0');
-    background-size: cover; /* Adjust the image size to cover the header */
-    background-position: center; /* Center the image horizontally and vertically */
+    background-size: cover;
+    background-position: center;
     color: #ffffff;
 
 }
@@ -24,16 +24,18 @@ header {
 #Everything {
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    position: sticky;
+    font-size: xxx-large;
+    position: static;
     top: 5px;
-    right: 850px;
+    right: 100px;
 }   
 #Fitness {
     color: rgb(255, 246, 246);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    position: sticky;
-    top: 0px;
-    right: 800px;
+    font-size: xxx-large;
+    position: static;
+    top: 5px;
+    right: 0px;
 
 }
 
@@ -53,6 +55,73 @@ header {
     top: 50px;
     left: 75px;
 }
+
+.box {
+    width: 1820px;
+    height: 700px;
+    background-color: #d7dcea;
+    border: 10px solid #000000;
+    padding: 20px;
+    position: absolute;
+    top: 300px;
+    left: 10px;
+    border-radius: 15px;
+  }
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 100px;
+    position: absolute;
+    top: 30px;
+    left: 540px;   
+}
+
+#username {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 300px;
+    left: 300px;
+}
+
+#password {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 390px;
+    left: 300px;
+}
+
+#usernametextbox {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 300px;
+    left: 500px;
+}
+
+#passwordtextbox {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 390px;
+    left: 500px;
+}
+
+#login {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 490px;
+    left: 610px;
+}
+
+#error {
+    position: absolute;
+    top: 440px;
+    left: 500px; 
+}
+
 
 main {
     max-width: 800px;

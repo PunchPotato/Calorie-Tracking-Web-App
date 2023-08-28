@@ -24,18 +24,21 @@ header {
 #Everything {
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    position: sticky;
+    font-size: xxx-large;
+    position: static;
     top: 5px;
-    right: 850px;
+    right: 100px;
 }   
 #Fitness {
     color: rgb(255, 246, 246);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    position: sticky;
-    top: 0px;
-    right: 800px;
+    font-size: xxx-large;
+    position: static;
+    top: 5px;
+    right: 0px;
 
 }
+
 
 #Button {
     position: absolute;
