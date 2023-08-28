@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Flask Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <header>
+        <h1 id="Everything" font>Everything</h1>
+        <h1 id="Fitness">Fitness</h1>
+    </header>
+    
+    <main>
+        <form action="{{ url_for('login') }}" method="post">
+            <label for="usernametextbox">Username:</label>
+            <input type="text" id="usernametextbox" name="usernametextbox">
+            
+            <label for="passwordtextbox">Password:</label>
+            <input type="password" id="passwordtextbox" name="passwordtextbox">
+            
+            <button type="submit">Log In</button>
+        
+        {% if error_message %}
+        <div style="color: red;">{{ error_message }}</div>
+        {% endif %}
+        
+        {% if entered_text %}
+        <div>
+            Entered Username: {{ entered_text['username'] }}<br>
+            Entered Password: {{ entered_text['password'] }}
+        </div>
+        {% endif %}
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+</body>
+</html>
