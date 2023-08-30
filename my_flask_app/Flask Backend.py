@@ -37,7 +37,8 @@ def login():
                 con.close()
                 my_cursor.close()
 
-    return render_template('login.html', entered_text=None)
+    else:
+        return render_template('login.html', entered_text=None)
         
 
 @app.route('/signup')

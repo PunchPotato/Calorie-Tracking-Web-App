@@ -12,9 +12,9 @@
     
     <main>
         <div class="box">
-            <img id="foodimage" src="https://lh3.googleusercontent.com/pw/AIL4fc-n-ZFLTWMOy1dxhWjUW4FcIKnC5LcYR54MHz7rsCYPhbrpdEwUvKJXhtw73XrRjFXUg-zL4EG3TcCSqT7R_QUz0l6e9FyciyIbklH9zmxCeDCwS-LarrWLXRbQPDAhFmD2YOpAGAYMjoDwoeKzsRmaXiV-MpqZ-BOndWgXTXTsB7pp3Qb-IxCdArcXX3OcdtVSIgivh5Z_vP6aGwpsSHgGNjWoml-JVu8BylrzatZfmNAv741FB4FFQe6B_MSzTbTpwCIZWE6fQmc9x38UwVVGqveFv8t24oCoF2WpiAJ-rKN_jJJMH8dvV1M_-YxvgvDtjNhX-eXlCwOzYgqkFZheu_djfU7E7CoJd9IsvLDQmhvN7LT5A0F3LJ_r2ACqLet0JJJrW7rmskJrZ-_f6XjNxO2TfXO4mGzYSIuKyHXvEVqDAnzq07SiOzA9TxvRLgoRIGSg6KM0IEmpZjsiIjERftKNeaUrcGeee5uH1x_QQulJSjj-xND8vKOcqI-5fSKojDjhyiBK_7yBKU0aLTmtdIppnEDUSiEVumb1Cl4ICAH2pnV9QGzh7XcFj2aJQAdqRsq0IfEFZ4oYilwz5TcLQsX-6S7yuk7X-Byc7spTVXecqmlSsMvITiEvg1UYtUMDCoac256sJtPUR7XRaN75vZ0EQ9KpaXTvyPupbQ-Lil6ySlJp4g0YhyHHXsLBkZqo3G1bZmb4ka1y7Bd0rZbW3YcbdN7REH1oCBltrBuik4IpcnAxk6If7r-mYjvRlgdwSHOScM5WHvYzm-etM9xjpNOK8Xx2N956mknGhkdhXFO1yxPfdOXlA2n9KbkjIMHx_HSGJYIG3oAWeCuvxq27WMXzkMcc0HCt2wJ2wrUQjV79-6xJCLuXPY5hd2MIyaYVZv7k1e5l0Ko6nxgIQkY_sw=w355-h700-s-no?authuser=0" alt="food photo">
+            <img id="foodimage" src="https://lh3.googleusercontent.com/pw/AIL4fc8N95zHyjvrAJ1x0W7SOKm7WzZuuxkuyKy2f7hXloTtnUxLLdqagiDpD45ZeWxyjofaAXcNFJ6g1cnjyyzOf1hc9A5PCJB8-3_9Af6C5Q52cdtsLv8oH_-d_Ee5vvV2zFoTNM9HHuEnGG6A8P1yRGqk9ikCH_i179jU0wXEwG67VBKQMQngZ45KJtab8moyHqJQQCNuDSA6-7j1jxcC453fBrSanw8DQ7L4HsZruZLycxDnytnzE_mjzCFwLYTsqlh3AkeGVKstw4EASBe5_JzCPaxlo7vZNeIAv93PSGRHyJ16L65To1QiN4ElSqU7R1eGEkXHGhaH9n_-Q9APCTFTBaqQ_eTt4XQPGyzsYGBIzCvEaFejbi5LIhVCSbdQyOQpaGuyGfl9LzqUM4_sH0eWFyhWXqkz7MFmm2IQeWtNbpQGmcrAWfNgroT2EE0hTrlPyTlRnT0YvoPhykM2jCOsXoV9rYDzkZNEmb3GUWbTGVsZzknf1z62GnsmdCZp8z426DTWSnHtZ2y7F7cGmeBra_ajceGYfRXRAPewOOhjCtrlP-Mh1lVQJ4BRq-pGzEAxIFZxRxM0z3Y8d-M-J9_7ENoUEpwvV6YGTQ__sJI1Wf6oCfcIhQ8KlGHuIv2Ng78iQsDhDXGOsb60fdqi6XqdRRMJzWv-Mq8bUVR_eGzJib2NBqYMoVU4CMLzbEBhTZT23PEPK9bNa2xADQyfFmDoTf2QkgZW4eGYVkvVWrkWj2ZVjiCBZxQQEfiwTnrHPApoVbhjvDym8VYk9OEoeuS0ClUAt9kNDVt40mnp90WOEfe8lubLQZWTyJ-188aWAr4kWLq-orMQGLIDS0OG-Sy3253PtPtq6SLiz-9jxrjEGsao4vQ0vwjii9kIYFTCLiK3B0o_4Sabdxm5-pliPig8EQ=w355-h700-s-no?authuser=0" alt="food photo">
             <h1>LOG IN</h1>
-            <form action="{{ url_for('login') }}" method="post">
+            <form action="{{ url_for('login') }}" method="post" novalidate>
                 <label id="username" for="usernametextbox">Username:</label>
                 <input type="text" id="usernametextbox" name="usernametextbox">
                 
@@ -23,21 +23,20 @@
                 
                 <a id="forgotpasswordlink" href="/forgotpassword">Forgot Password?</a>
 
-                <button id="login" type="submit">Log In</button>
+                <button id="login_id" type="submit">Log In</button>
                 
                 <p id="or">----------------------------OR----------------------------</p>
                 <a id="signuplink" href="/signup">Sign Up!</a>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="checkbox_id" name="checkbox_name" value="checkbox_value">
+                    <label for="checkbox_id">Stay signed in</label>
+                    </div>
+                
 
                 {% if error_message %}
                 <div id="error" style="color: red;">{{ error_message }}</div>
                 {% endif %}
-
-                {% if entered_text %}
-                <div>
-                    Entered Username: {{ entered_text['username'] }}<br>
-                    Entered Password: {{ entered_text['password'] }}
-                </div>
-        {% endif %}
           </div>
     </main>
     
