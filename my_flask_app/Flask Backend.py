@@ -40,7 +40,13 @@ def login():
     return render_template('login.html', entered_text=None)
         
 
-    # return redirect(url_for('success'))
+@app.route('/signup')
+def signup():
+    return "this is a signup page"
+
+@app.route('/forgotpassword')
+def forgotpassword():
+    return "this is a forgot password page"
 
 @app.route('/success')
 def success():

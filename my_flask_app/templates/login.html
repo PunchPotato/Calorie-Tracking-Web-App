@@ -21,12 +21,16 @@
                 <label id="password" for="passwordtextbox">Password:</label>
                 <input type="password" id="passwordtextbox" name="passwordtextbox">
                 
+                <a id="forgotpasswordlink" href="/forgotpassword">Forgot Password?</a>
+
                 <button id="login" type="submit">Log In</button>
+                
+                <p id="or">----------------------------OR----------------------------</p>
+                <a id="signuplink" href="/signup">Sign Up!</a>
+
                 {% if error_message %}
                 <div id="error" style="color: red;">{{ error_message }}</div>
                 {% endif %}
-                
-                <p id="or">----------------------------OR----------------------------</p>
 
                 {% if entered_text %}
                 <div>
