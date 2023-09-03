@@ -48,7 +48,7 @@ header {
 
 .box {
     width: 1820px;
-    height: 700px;
+    height: 900px;
     background-color: #d7dcea;
     border: 10px solid #000000;
     padding: 20px;
@@ -63,7 +63,7 @@ h1 {
     font-size: 100px;
     position: absolute;
     top: 0px;
-    left: 540px;   
+    left: 600px;   
 }
 
 #username {
@@ -71,15 +71,7 @@ h1 {
     font-size: xx-large;
     position: absolute;
     top: 260px;
-    left: 300px;
-}
-
-#password {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: xx-large;
-    position: absolute;
-    top: 350px; 
-    left: 300px;
+    left: 240px;
 }
 
 #usernametextbox {
@@ -88,29 +80,67 @@ h1 {
     position: absolute;
     top: 260px; 
     left: 500px;
+    width: 500px;
+}
+
+#email {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 360px;
+    left: 240px;
+}
+
+#emailtextbox {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 360px; 
+    left: 500px;
+    width: 500px;
+}
+
+#password {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 450px; 
+    left: 240px;
 }
 
 #passwordtextbox {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 350px; 
+    top: 450px; 
     left: 500px;
+    width: 500px;
 }
 
-#forgotpasswordlink {
+#comfirmpassword {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
     position: absolute;
-    top: 400px; 
-    left: 500px;
+    top: 550px; 
+    left: 240px;
 }
 
-#login_id {
+#comfirmpasswordtextbox {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    position: absolute;
+    top: 550px; 
+    left: 500px;
+    width: 500px;
+}
+
+#signup_id {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
     width: 320px;
-    top: 420px; 
-    left: 500px;
+    top: 620px; 
+    left: 590px;
 }
 
 #error {
@@ -123,8 +153,8 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 530px; 
-    left: 380px;
+    top: 730px; 
+    left: 470px;
 }
 
 #foodimage {
@@ -135,10 +165,10 @@ h1 {
     height: 740px;
 }
 
-#signuplink {
+#loginlink {
     position: absolute;
-    top: 630px; 
-    left: 630px;
+    top: 830px; 
+    left: 730px;
 }
 
 .checkbox-container {
@@ -146,8 +176,8 @@ h1 {
     align-items: center;
     margin-bottom: 10px; 
     position: absolute;
-    top: 520px; 
-    left: 590px;
+    top: 700px; 
+    left: 620px;
     }
 
     .checkbox-container input[type="checkbox"] {
@@ -176,6 +206,6 @@ footer {
     color: rgb(0, 0, 0);
     text-align: center;
     position: absolute;
-    bottom: -140px;
+    bottom: -340px;
     right: 25px;
 }

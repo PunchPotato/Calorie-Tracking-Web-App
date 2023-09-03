@@ -1,3 +1,5 @@
+import re
+from tkinter import IntVar
 from flask import Flask, redirect, render_template, request, url_for
 import pymysql
 import os
@@ -41,9 +43,31 @@ def login():
         return render_template('login.html', entered_text=None)
         
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return "this is a signup page"
+    checkbox_value = request.form.get('checkbox_name')
+    if request.method == 'POST':
+        username_entered_text = request.form.get('usernametextbox')
+        email_entered_text = request.form.get('emailtextbox')
+        password_entered_text = request.form.get('passwordtextbox')
+        comfirm_password_entered_text = request.form.get('comfirmpasswordtextbox')
+        email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+        if email_entered_text == '' or username_entered_text == '' or password_entered_text == '' or\
+                comfirm_password_entered_text == '':
+            return render_template('signup.html', error_message="Field cannot be empty")
+        elif re.match(email_pattern, email_entered_text):
+            pass
+        else:
+            return render_template('signup.html', error_message="Error, Email not valid.")
+        if comfirm_password_entered_text != password_entered_text:
+            return render_template('signup.html', error_message="Error, Passwords do not match.")
+        elif checkbox_value != 'checkbox_value':
+            return render_template('signup.html', error_message="Accept Terms & Conditions.")
+        elif len(password_entered_text) > 5 and any(char.isupper() for char in password_entered_text):
+            render_template('login.html')
+        else:
+            return render_template('signup.html', error_message="Error, Password needs to be longer than 5 characters and include a capital letter.")
+    return render_template('signup.html')
 
 @app.route('/forgotpassword')
 def forgotpassword():
