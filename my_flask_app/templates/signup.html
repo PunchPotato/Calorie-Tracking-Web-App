@@ -14,7 +14,7 @@
         <div class="box">
             <img id="foodimage" src="https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/blueberry.png?raw=true" alt="food photo">
             <h1>SIGN UP</h1>
-            <form action="{{ url_for('signup) }}" method="post" novalidate>
+            <form action="{{ url_for('signup') }}" method="post" novalidate>
                 <label id="username" for="usernametextbox">Username:</label>
                 <input type="text" id="usernametextbox" name="usernametextbox">
                 
@@ -31,7 +31,7 @@
                 <button id="signup_id" type="submit">Sign Up!</button>
                 
                 <p id="or">----------------------------OR----------------------------</p>
-                <a id="loginlink" href="/signup">Log in!</a>
+                <a id="loginlink" href="/login">Log in!</a>
                 
                 <div class="checkbox-container">
                     <input type="checkbox" id="checkbox_id" name="checkbox_name" value="checkbox_value">

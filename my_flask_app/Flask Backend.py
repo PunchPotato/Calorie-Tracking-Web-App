@@ -1,5 +1,4 @@
 import re
-from tkinter import IntVar
 from flask import Flask, redirect, render_template, request, url_for
 import pymysql
 import os
@@ -54,7 +53,7 @@ def signup():
         email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
         if email_entered_text == '' or username_entered_text == '' or password_entered_text == '' or\
                 comfirm_password_entered_text == '':
-            return render_template('signup.html', error_message="Field cannot be empty")
+            return render_template('signup.html', error_message="Field(s) cannot be empty")
         elif re.match(email_pattern, email_entered_text):
             pass
         else:
@@ -64,7 +63,36 @@ def signup():
         elif checkbox_value != 'checkbox_value':
             return render_template('signup.html', error_message="Accept Terms & Conditions.")
         elif len(password_entered_text) > 5 and any(char.isupper() for char in password_entered_text):
-            render_template('login.html')
+            try:
+                con = pymysql.connect(host='localhost', user='root', password=os.environ.get('MYSQL_PASSWORD'))
+                my_cursor = con.cursor()
+                query = 'create database if not exists mydatabase'
+                my_cursor.execute(query)
+                query = 'use mydatabase'
+                my_cursor.execute(query)
+                query = 'create table if not exists user_data(id int auto_increment primary key not null, ' \
+                        'email varchar(50), username varchar(100), password varchar(20))'
+                my_cursor.execute(query)
+                con.commit()
+
+                query = 'SELECT * FROM user_data WHERE username = %s OR email = %s'
+                my_cursor.execute(query, (username_entered_text, email_entered_text))
+
+                row = my_cursor.fetchone()
+                if row != None:
+                    return render_template('signup.html', error_message="Error, Username or email already exists.")
+                else:
+                    query = 'insert into user_data (email, username, password) values(%s, %s, %s)'
+                    my_cursor.execute(query, (email_entered_text, username_entered_text, password_entered_text))
+
+                    con.commit()
+                    con.close()
+
+                    return render_template('login.html')
+                
+            except pymysql.Error as e:
+                return render_template('signup.html', error_message=f"Error: Failed to connect to the database. Error: {str(e)}")
+            
         else:
             return render_template('signup.html', error_message="Error, Password needs to be longer than 5 characters and include a capital letter.")
     return render_template('signup.html')
