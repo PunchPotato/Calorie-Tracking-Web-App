@@ -4,7 +4,7 @@ import secrets
 import smtplib
 import string
 import time
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request, session, url_for
 import pymysql
 import os
 
@@ -42,6 +42,7 @@ class UserAuthentication:
         self.db.connection.commit()
 
 app = Flask(__name__, static_folder='static')
+app.secret_key = secrets.token_hex(16)
 
 @app.route('/')
 def index():
@@ -103,8 +104,8 @@ def signup():
 @app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():
     if request.method == 'POST':
-        global email
         email = request.form.get('emailtextbox')
+        session['temp_email'] = email
 
         if email == '':
             return render_template('forgotpassword.html', error_message="Error, all fields must be filled.")
@@ -217,13 +218,13 @@ def delete_expired_codes():
             pass
 
 
-@app.route('/resetpassword')
+@app.route('/resetpassword', methods=['GET', 'POST'])
 def resetpassword():
     if request.method == 'POST':
         entered_code = request.form.get('codetextbox')
         entered_password = request.form.get('passwordtextbox')
         entered_comfirm_password = request.form.get('comfirmpasswordtextbox')
-        global email
+        email = session.get('temp_email', None)
         print("Entered code:", entered_code)
 
         if entered_code == '' or entered_password == '' or entered_comfirm_password == '':
