@@ -103,6 +103,7 @@ def signup():
 @app.route('/forgotpassword', methods=['GET', 'POST'])
 def forgotpassword():
     if request.method == 'POST':
+        global email
         email = request.form.get('emailtextbox')
 
         if email == '':
@@ -130,7 +131,7 @@ def forgotpassword():
                 con.commit()
 
                 if send_email(email, random_code):
-                    return redirect(url_for('success'))
+                    return redirect(url_for('resetpassword'))
                 else:
                     return render_template('forgotpassword.html', error_message="Error, Failed to send email")
 
@@ -215,6 +216,61 @@ def delete_expired_codes():
         except pymysql.Error:
             pass
 
+
+@app.route('/resetpassword')
+def resetpassword():
+    if request.method == 'POST':
+        entered_code = request.form.get('codetextbox')
+        entered_password = request.form.get('passwordtextbox')
+        entered_comfirm_password = request.form.get('comfirmpasswordtextbox')
+        global email
+        print("Entered code:", entered_code)
+
+        if entered_code == '' or entered_password == '' or entered_comfirm_password == '':
+            return render_template('resetpassword.html', error_message="Error, All fields must be filled.")
+        
+        elif entered_password != entered_comfirm_password:
+            return render_template('resetpassword.html', error_message="Error, Password must match.")
+
+        elif len(entered_password) < 5 or not any(char.isupper() for char in entered_password) or len(entered_comfirm_password) < 5 or not any(char.isupper() for char in entered_comfirm_password):
+           return render_template('resetpassword.html', error_message="Error, Password needs to be longer than 5 characters and include a capital letter.")
+
+        
+        try:
+            con = pymysql.connect(host='localhost', user='root', password=os.environ.get('MYSQL_PASSWORD'),
+                                database='mydatabase')
+            with con:
+                my_cursor = con.cursor()
+
+                query = "SELECT email FROM user_data WHERE email = %s AND one_time_codes = %s"
+                my_cursor.execute(query, (email, entered_code))
+                row = my_cursor.fetchone()
+
+                if row:
+                    query = "UPDATE user_data SET password = %s WHERE email = %s"
+                    my_cursor.execute(query, (entered_password, email))
+                    con.commit()
+
+                    return render_template('login.html')
+                else:
+                    return render_template('resetpassword.html', error_message='Error, Invalid code or email. Please try again.')
+
+        except pymysql.Error as e:
+            return render_template('resetpassword.html', error_message="Error, Failed to connect to the database: " + str(e))
+        
+        except Exception as e:
+            return render_template('resetpassword.html', error_message="Error, An error occurred. Please try again.")
+
+
+        finally:
+            try:
+                if my_cursor:
+                    my_cursor.close()
+                if con:
+                    con.close()
+            except pymysql.Error:
+                pass
+    return render_template('resetpassword.html')
 
 @app.route('/success')
 def success():
