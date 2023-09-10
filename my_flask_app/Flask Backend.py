@@ -60,7 +60,7 @@ def login():
         
         auth = UserAuthentication()
         if auth.check_credentials(username_entered_text, password_entered_text):
-            return redirect(url_for('success'))
+            return redirect(url_for('calories'))
         else:
             return render_template('login.html', error_message="Invalid username or password")
     
@@ -273,9 +273,9 @@ def resetpassword():
                 pass
     return render_template('resetpassword.html')
 
-@app.route('/success')
-def success():
-    return "You have successfully logged in!"
+@app.route('/calories')
+def calories():
+    return render_template('calories.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

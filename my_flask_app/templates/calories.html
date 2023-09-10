@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Flask Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='calories.css') }}">
+</head>
+<body>
+        <header class="header">
+        <h1 id="Everything", font>Everything</h1>
+        <h1 id="Fitness">Fitness</h1>
+        <form action="{{ url_for('calories') }}" method="post">
+            <button id="LogOutButton" type="submit">Log Out!</button>
+    </header>
+    
+    <main>
+        <div class="box">
+            <img id="foodimage" src="https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/blueberry.png?raw=true" alt="food photo">
+            <form action="{{ url_for('resetpassword') }}" method="post" novalidate>
+          </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+</body>
+</html>
