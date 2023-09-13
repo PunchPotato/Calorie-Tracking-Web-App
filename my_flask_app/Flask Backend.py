@@ -273,9 +273,17 @@ def resetpassword():
                 pass
     return render_template('resetpassword.html')
 
-@app.route('/calories')
+@app.route('/calories', methods=['GET', 'POST'])
 def calories():
     return render_template('calories.html')
+
+@app.route('/exercise', methods=['GET', 'POST'])
+def exercise():
+    return 'exercise page'
+
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    return 'profile page'
 
 if __name__ == '__main__':
     app.run(debug=True)

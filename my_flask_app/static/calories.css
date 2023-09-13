@@ -51,6 +51,39 @@ header {
     border-radius: 15px;
 }
 
+#DietTrackingButton {
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+    top: 190px;
+    left: 75px;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+#ExerciseButton {
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+    top: 190px;
+    left: 880px;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+#ProfileButton {
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+    top: 190px;
+    right: 75px;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+}
+
 #BackgroundImage {
     position: fixed;
     top: 50px;
