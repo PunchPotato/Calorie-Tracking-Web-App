@@ -275,7 +275,8 @@ def resetpassword():
 
 @app.route('/calories', methods=['GET', 'POST'])
 def calories():
-    return render_template('calories.html')
+    total_calories = 500  # Replace this with your actual total calorie value
+    return render_template('calories.html', total_calories=total_calories)
 
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():

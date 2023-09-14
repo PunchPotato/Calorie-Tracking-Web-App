@@ -5,18 +5,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='calories.css') }}">
 </head>
 <body>
-        <header class="header">
-        <h1 id="Everything", font>Everything</h1>
-        <h1 id="Fitness">Fitness</h1>
-        <form action="{{ url_for('login') }}" method="post">
-            <button id="LogOutButton" type="submit">Log Out!</button>
+    <header class="header">
+    <h1 id="Everything", font>Everything</h1>
+    <h1 id="Fitness">Fitness</h1>
+    <form action="{{ url_for('login') }}" method="post">
+        <button id="LogOutButton" type="submit">Log Out!</button>
+    </form>
     </header>
     
     <main>
         <div class="box">
-            <img id="foodimage" src="https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/blueberry.png?raw=true" alt="food photo">
-            <form action="{{ url_for('resetpassword') }}" method="post" novalidate>
-          </div>
+            <button id="DietTrackingButton" type="submit">Diet Tracking!</button>
+            <form action="{{ url_for('exercise') }}" method="post">
+                <button id="ExerciseButton" type="submit">Exercises!</button>
+            </form>
+            <form action="{{ url_for('profile') }}" method="post">
+                <button id="ProfileButton" type="submit">Profile!</button>
+            </form>
+        </div>
+        <div class="box_2">
+            Total Calories: <span>{{ total_calories }}</span> calories
+        </div>
     </main>
     
     <footer>

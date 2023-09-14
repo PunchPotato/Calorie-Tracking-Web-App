@@ -39,6 +39,35 @@ header {
 
 }
 
+.box {
+    width: 300px;
+    height: 500px;
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20header.png?raw=true');
+    background-size: cover; /* Adjust the image size to cover the header */
+    background-position: bottom;
+    border: 10px solid #000000;
+    padding: 20px;
+    position: absolute;
+    top: 300px;
+    left: -10px;
+    border-radius: 50px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+
+  .box_2 {
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20header.png?raw=true');
+    background-size: cover; /* Adjust the image size to cover the header */
+    background-position: top;
+    border: 10px solid #000000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 50px;
+  }
 
 #LogOutButton {
     position: absolute;
@@ -55,7 +84,7 @@ header {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
-    top: 190px;
+    top: 50px;
     left: 75px;
     width: 150px;
     height: 50px;
@@ -66,8 +95,8 @@ header {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
-    top: 190px;
-    left: 880px;
+    top: 250px;
+    left: 75px;
     width: 150px;
     height: 50px;
     border-radius: 15px;
@@ -77,8 +106,8 @@ header {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
-    top: 190px;
-    right: 75px;
+    top: 450px;
+    left: 75px;
     width: 150px;
     height: 50px;
     border-radius: 15px;
