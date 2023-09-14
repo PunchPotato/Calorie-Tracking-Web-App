@@ -8,6 +8,8 @@ from flask import Flask, redirect, render_template, request, session, url_for
 import pymysql
 import os
 
+sentences = []
+
 class Database:
     def __init__(self):
         self.connection = pymysql.connect(host='localhost', user='root', password=os.environ.get('MYSQL_PASSWORD'))
@@ -275,8 +277,16 @@ def resetpassword():
 
 @app.route('/calories', methods=['GET', 'POST'])
 def calories():
-    total_calories = 500  # Replace this with your actual total calorie value
-    return render_template('calories.html', total_calories=total_calories)
+    total_calories = 500
+    return render_template('calories.html', total_calories=total_calories,  sentences=sentences)
+
+@app.route('/add_sentence', methods=['POST'])
+def add_sentence():
+    global sentences
+    new_sentence = request.form.get('new_sentence')
+    if new_sentence:
+        sentences.append(new_sentence)
+    return redirect(url_for('calories'))
 
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():

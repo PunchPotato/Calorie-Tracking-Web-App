@@ -26,6 +26,19 @@
         <div class="box_2">
             Total Calories: <span>{{ total_calories }}</span> calories
         </div>
+        <div class="container">
+            <div class="expanding-box">
+                <ul>
+                    {% for sentence in sentences %}
+                    <li>{{ sentence }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <form action="{{ url_for('add_sentence') }}" method="post">
+                <input type="text" name="new_sentence" placeholder="Enter a new sentence">
+                <button type="submit">Add Sentence</button>
+            </form>
+        </div>
     </main>
     
     <footer>
