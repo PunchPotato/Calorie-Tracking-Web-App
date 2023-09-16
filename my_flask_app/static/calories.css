@@ -77,11 +77,17 @@ header {
 }
 
 .expanding-box {
-    width: 300px;
-    max-height: 300px;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    padding: 10px;
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20header.png?raw=true');
+    background-size: cover; /* Adjust the image size to cover the header */
+    background-position: top;
+    border: 10px solid #000000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 25px;
 }
 
 ul {
