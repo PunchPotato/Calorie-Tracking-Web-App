@@ -1,21 +1,25 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>My Flask Website</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <div class="box">
         <header class="header">
-        <h1 id="Everything", font>Everything</h1>
-        <h1 id="Fitness">Fitness</h1>
-        <form action="{{ url_for('login') }}" method="post">
-            <button id="Button" type="submit">Log In!</button>
-    </header>
-    <main>
-        <p>This is a simple website built with Flask.</p>
-    </main>
-    <footer>
-        <p>&copy; 2023 My Website</p>
-    </footer>
+            <h1 id="Everything">Everything</h1>
+            <h1 id="Fitness">Fitness</h1>
+            <form action="{{ url_for('login') }}" method="post">
+                <button class="my-button" id="Button" type="submit">Log In!</button>
+            </form>
+        </header>
+        <main>
+            <p id="text1">Tracking Your Fitness Has Never Been Easier.</p>
+            <p id="text2">Your Calories, Macros and Workouts are a Priority.</p>
+            <img id="barbell" src="https://raw.githubusercontent.com/PunchPotato/Calorie-Tracking-Web-App/main/images/barbel.png" alt="barbell">
+            <img id="fork" src="https://raw.githubusercontent.com/PunchPotato/Calorie-Tracking-Web-App/main/images/fork.png" alt="fork">
+        </main>
+        <footer>
+        </footer>
+    </div>
 </body>
 </html>
