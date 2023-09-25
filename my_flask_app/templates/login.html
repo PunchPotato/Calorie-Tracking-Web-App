@@ -11,37 +11,33 @@
     </header>
     
     <main>
-        <div class="box">
-            <img id="foodimage" src="https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/blueberry.png?raw=true" alt="food photo">
-            <h1>LOG IN</h1>
-            <form action="{{ url_for('login') }}" method="post" novalidate>
-                <label id="username" for="usernametextbox">Username:</label>
-                <input type="text" id="usernametextbox" name="usernametextbox">
-                
-                <label id="password" for="passwordtextbox">Password:</label>
-                <input type="password" id="passwordtextbox" name="passwordtextbox">
-                
-                <a id="forgotpasswordlink" href="/forgotpassword">Forgot Password?</a>
+        <h1>LOG IN</h1>
+        <form action="{{ url_for('login') }}" method="post" novalidate>
+            <label id="username" for="usernametextbox">Username:</label>
+            <input type="text" id="usernametextbox" name="usernametextbox">
+            
+            <label id="password" for="passwordtextbox">Password:</label>
+            <input type="password" id="passwordtextbox" name="passwordtextbox">
+            
+            <a id="forgotpasswordlink" href="/forgotpassword">Forgot Password?</a>
 
-                <button id="login_id" type="submit">Log In</button>
-                
-                <p id="or">----------------------------OR----------------------------</p>
-                <a id="signuplink" href="/signup">Sign Up!</a>
-                
-                <div class="checkbox-container">
-                    <input type="checkbox" id="checkbox_id" name="checkbox_name" value="checkbox_value">
-                    <label for="checkbox_id">Stay signed in</label>
-                    </div>
-                
+            <button id="login_id" type="submit">Log In</button>
+            
+            <p id="or">----------------------------OR----------------------------</p>
+            <a id="signuplink" href="/signup">Sign Up!</a>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox_id" name="checkbox_name" value="checkbox_value">
+                <label for="checkbox_id">Stay signed in</label>
+                </div>
+            
 
-                {% if error_message %}
-                <div id="error" style="color: red;">{{ error_message }}</div>
-                {% endif %}
-          </div>
+            {% if error_message %}
+            <div id="error" style="color: red;">{{ error_message }}</div>
+            {% endif %}
     </main>
     
     <footer>
-        <p>&copy; 2023 My Website</p>
     </footer>
 </body>
 </html>

@@ -11,38 +11,35 @@
     </header>
     
     <main>
-        <div class="box">
-            <img id="foodimage" src="https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/blueberry.png?raw=true" alt="food photo">
-            <h1>SIGN UP</h1>
-            <form action="{{ url_for('signup') }}" method="post" novalidate>
-                <label id="username" for="usernametextbox">Username:</label>
-                <input type="text" id="usernametextbox" name="usernametextbox">
-                
-                <label id="email" for="emailtextbox">Email:</label>
-                <input type="email" id="emailtextbox" name="emailtextbox">
-                
-                <label id="password" for="passwordtextbox">Password:</label>
-                <input type="text" id="passwordtextbox" name="passwordtextbox">
-                
-                <label id="comfirmpassword" for="comfirmpasswordtextbox">Comfirm Password:</label>
-                <input type="password" id="comfirmpasswordtextbox" name="comfirmpasswordtextbox">
-                
+        <h1>SIGN UP</h1>
+        <form action="{{ url_for('signup') }}" method="post" novalidate>
+            <label id="username" for="usernametextbox">Username:</label>
+            <input type="text" id="usernametextbox" name="usernametextbox">
+            
+            <label id="email" for="emailtextbox">Email:</label>
+            <input type="email" id="emailtextbox" name="emailtextbox">
+            
+            <label id="password" for="passwordtextbox">Password:</label>
+            <input type="text" id="passwordtextbox" name="passwordtextbox">
+            
+            <label id="comfirmpassword" for="comfirmpasswordtextbox">Comfirm Password:</label>
+            <input type="password" id="comfirmpasswordtextbox" name="comfirmpasswordtextbox">
+            
 
-                <button id="signup_id" type="submit">Sign Up!</button>
-                
-                <p id="or">----------------------------OR----------------------------</p>
-                <a id="loginlink" href="/login">Log in!</a>
-                
-                <div class="checkbox-container">
-                    <input type="checkbox" id="checkbox_id" name="checkbox_name" value="checkbox_value">
-                    <label for="checkbox_id">I agree to terms and services</label>
-                    </div>
-                
+            <button id="signup_id" type="submit">Sign Up!</button>
+            
+            <p id="or">----------------------------OR----------------------------</p>
+            <a id="loginlink" href="/login">Log in!</a>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox_id" name="checkbox_name" value="checkbox_value">
+                <label for="checkbox_id">I agree to terms and services</label>
+                </div>
+            
 
-                {% if error_message %}
-                <div id="error" style="color: red;">{{ error_message }}</div>
-                {% endif %}
-          </div>
+            {% if error_message %}
+            <div id="error" style="color: red;">{{ error_message }}</div>
+            {% endif %}
     </main>
     
     <footer>

@@ -5,81 +5,64 @@ body {
 }
 
 header {
-    background-color: #cccdd0;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-bottom: 10px solid black;
-    border-right: 10px solid black;
-    border-left: 10px solid black;
-    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20header.png?raw=true');
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-
+    width: 1920px;
+    height: 200px;
+    background-color: #414770;
+    border: 1px solid #000;
+    padding: 10px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #Everything {
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xxx-large;
-    position: static;
-    top: 5px;
-    right: 100px;
-}   
+    position: absolute;
+    top: 0px;
+    left: 400px;
+}
+
 #Fitness {
     color: rgb(255, 246, 246);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xxx-large;
-    position: static;
-    top: 5px;
-    right: 0px;
-
+    position: absolute;
+    top: 50px;
+    left: 400px;
 }
 
 
 #BackgroundImage {
     position: fixed;
-    top: 50px;
-    left: 75px;
+    top: 250px; /* Adjusted from 50px */
+    left: 335px; /* Adjusted from 75px */
 }
-
-.box {
-    width: 1820px;
-    height: 900px;
-    background-color: #d7dcea;
-    border: 10px solid #000000;
-    padding: 20px;
-    position: absolute;
-    top: 300px;
-    left: 10px;
-    border-radius: 15px;
-  }
 
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 100px;
     position: absolute;
-    top: 0px;
-    left: 600px;   
+    top: 200px; /* Adjusted from 0px */
+    left: 860px; /* Adjusted from 600px */
 }
 
 #username {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 260px;
-    left: 240px;
+    top: 460px; /* Adjusted from 260px */
+    left: 500px; /* No change */
 }
 
 #usernametextbox {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 260px; 
-    left: 500px;
+    top: 460px; /* Adjusted from 260px */
+    left: 760px; /* Adjusted from 500px */
     width: 500px;
 }
 
@@ -87,16 +70,16 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 360px;
-    left: 240px;
+    top: 560px; /* Adjusted from 360px */
+    left: 500px; /* No change */
 }
 
 #emailtextbox {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 360px; 
-    left: 500px;
+    top: 560px; /* Adjusted from 360px */
+    left: 760px; /* Adjusted from 500px */
     width: 500px;
 }
 
@@ -104,16 +87,16 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 450px; 
-    left: 240px;
+    top: 650px; /* Adjusted from 450px */
+    left: 500px; /* No change */
 }
 
 #passwordtextbox {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 450px; 
-    left: 500px;
+    top: 650px; /* Adjusted from 450px */
+    left: 760px; /* Adjusted from 500px */
     width: 500px;
 }
 
@@ -121,16 +104,16 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 550px; 
-    left: 240px;
+    top: 750px; /* Adjusted from 550px */
+    left: 500px; /* No change */
 }
 
 #comfirmpasswordtextbox {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 550px; 
-    left: 500px;
+    top: 750px; /* Adjusted from 550px */
+    left: 760px; /* Adjusted from 500px */
     width: 500px;
 }
 
@@ -139,61 +122,38 @@ h1 {
     font-size: xx-large;
     position: absolute;
     width: 320px;
-    top: 620px; 
-    left: 590px;
+    top: 920px; /* Adjusted from 620px */
+    left: 850px; /* Adjusted from 590px */
 }
 
 #error {
     position: absolute;
-    top: 310px; 
-    left: 500px;
+    top: 310px; /* No change */
+    left: 500px; /* No change */
 }
 
 #or {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 730px; 
-    left: 470px;
-}
-
-#foodimage {
-    position: absolute;
-    top: 0px; 
-    right: 100px;
-    width: 400px;
-    height: 740px;
+    top: 1030px; /* Adjusted from 730px */
+    left: 730px; /* No change */
 }
 
 #loginlink {
     position: absolute;
-    top: 830px; 
-    left: 730px;
+    top: 1130px; /* Adjusted from 830px */
+    left: 990px; /* Adjusted from 730px */
 }
 
 .checkbox-container {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     position: absolute;
-    top: 700px; 
-    left: 620px;
-    }
-
-    .checkbox-container input[type="checkbox"] {
-    margin-right: 5px;
-    }
-
-    .checkbox-container label {
-    font-size: 18px;
-    color: #333;
-    }
-
-    .checkbox-container input[type="checkbox"]:checked + label {
-    font-weight: bold;
-    color: #007bff;
-    }
-
+    top: 1000px; /* Adjusted from 700px */
+    left: 850px; /* Adjusted from 620px */
+}
 
 main {
     max-width: 800px;
