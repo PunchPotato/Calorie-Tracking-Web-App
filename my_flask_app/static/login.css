@@ -34,7 +34,6 @@ header {
     left: 400px;
 }
 
-
 #BackgroundImage {
     position: fixed;
     top: 50px;
@@ -46,7 +45,7 @@ h1 {
     font-size: 100px;
     position: absolute;
     top: 200px;
-    left: 640px;   
+    left: 900px;   
 }
 
 #username {
@@ -70,7 +69,8 @@ h1 {
     font-size: xx-large;
     position: absolute;
     top: 460px; 
-    left: 600px;
+    left: 760px; /* Adjusted from 500px */
+    width: 500px;
 }
 
 #passwordtextbox {
@@ -78,13 +78,14 @@ h1 {
     font-size: xx-large;
     position: absolute;
     top: 550px; 
-    left: 600px;
+    left: 760px; /* Adjusted from 500px */
+    width: 500px;
 }
 
 #forgotpasswordlink {
     position: absolute;
     top: 600px; 
-    left: 600px;
+    left: 760px;
 }
 
 #login_id {
@@ -92,28 +93,28 @@ h1 {
     font-size: xx-large;
     position: absolute;
     width: 320px;
-    top: 620px; 
-    left: 600px;
+    top: 670px; 
+    left: 860px;
 }
 
 #error {
     position: absolute;
     top: 510px; 
-    left: 600px;
+    left: 760px;
 }
 
 #or {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 730px; 
-    left: 480px;
+    top: 780px; 
+    left: 740px;
 }
 
 #signuplink {
     position: absolute;
-    top: 830px; 
-    left: 730px;
+    top: 880px; 
+    left: 990px;
 }
 
 .checkbox-container {
@@ -121,8 +122,8 @@ h1 {
     align-items: center;
     margin-bottom: 10px; 
     position: absolute;
-    top: 720px; 
-    left: 690px;
+    top: 770px; 
+    left: 950px;
     }
 
     .checkbox-container input[type="checkbox"] {

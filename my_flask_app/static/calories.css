@@ -5,54 +5,43 @@ body {
 }
 
 header {
-    background-color: #cccdd0; /* Change to the desired color */
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-bottom: 10px solid black;
-    border-right: 10px solid black;
-    border-left: 10px solid black;
-    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20header.png?raw=true');
-    background-size: cover; /* Adjust the image size to cover the header */
-    background-position: center; /* Center the image horizontally and vertically */
-    color: #ffffff;
-
+    width: 1920px;
+    height: 200px;
+    background-color: #414770;
+    border: 1px solid #000;
+    padding: 10px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #Everything {
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xxx-large;
-    position: static;
-    top: 5px;
-    right: 100px;
-}   
+    position: absolute;
+    top: 0px;
+    left: 400px;
+}
+
 #Fitness {
     color: rgb(255, 246, 246);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xxx-large;
-    position: static;
-    top: 5px;
-    right: 0px;
-
+    position: absolute;
+    top: 50px;
+    left: 400px;
 }
 
 .box {
-    width: 300px;
-    height: 500px;
-    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20header.png?raw=true');
-    background-size: cover; /* Adjust the image size to cover the header */
-    background-position: bottom;
-    border: 10px solid #000000;
+    width: 1080px;
+    height: 50px;
+    background-color: #414770;;
     padding: 20px;
     position: absolute;
     top: 300px;
-    left: -10px;
-    border-radius: 50px;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
+    left: 400px;
   }
 
   .box_2 {
@@ -77,7 +66,7 @@ header {
 }
 
 .expanding-box {
-    background-color: #cccdd0;
+    background-color: #414770;;
     border: 10px solid #000000;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(0, 0, 0);
@@ -99,17 +88,17 @@ li {
 }
 
 .search_food {
-    border: 10px solid #000000;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(0, 0, 0);
     padding: 20px;
-    border-radius: 10px;
     text-align: center;
     font-size: 24px;
-    border-radius: 25px;
     position: absolute;
-    right: 300px;
-    background-color: #cccdd0;
+    width: 300px;
+    height: 100px;
+    top: 500px;
+    left: 800px;
+    background-color: #414770;
 }
 
 form input[type="text"] {
@@ -122,48 +111,74 @@ form button {
     padding: 5px 10px;
 }
 
+#FoodButton {
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background-color: white;
+    cursor: pointer;
+    top: 100px;
+    left: 130px;
+    width: 100px;
+    height: 30px;
+}
+
 #LogOutButton {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
-    top: 50px;
-    right: 75px;
-    width: 150px;
-    height: 50px;
-    border-radius: 15px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background-color: white;
+    cursor: pointer;
+    top: 90px;
+    right: 400px;
+    width: 100px;
+    height: 30px;
 }
 
 #DietTrackingButton {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
-    top: 50px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background-color: white;
+    cursor: pointer;
+    top: 23px;
     left: 75px;
     width: 150px;
     height: 50px;
-    border-radius: 15px;
 }
 
 #ExerciseButton {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
-    top: 250px;
-    left: 75px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background-color: white;
+    cursor: pointer;
+    top: 23px;
+    left: 480px;
     width: 150px;
     height: 50px;
-    border-radius: 15px;
 }
 
 #ProfileButton {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: larger;
-    top: 450px;
-    left: 75px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background-color: white;
+    cursor: pointer;
+    top: 23px;
+    right: 75px;
     width: 150px;
     height: 50px;
-    border-radius: 15px;
 }
 
 #BackgroundImage {
