@@ -45,16 +45,18 @@ header {
   }
 
   .box_2 {
-    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20header.png?raw=true');
-    background-size: cover; /* Adjust the image size to cover the header */
-    background-position: top;
-    border: 10px solid #000000;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgb(0, 0, 0);
+    font-size: xxx-large;
+    width: 300px;
+    height: 50px;
+    background-color: #414770;;
     padding: 20px;
-    border-radius: 10px;
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    top: 425px;
+    right: 400px;
     text-align: center;
-    font-size: 24px;
     border-radius: 50px;
   }
 
@@ -67,14 +69,14 @@ header {
 
 .expanding-box {
     background-color: #414770;;
-    border: 10px solid #000000;
+    width: 1080px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(0, 0, 0);
     padding: 20px;
-    border-radius: 10px;
     text-align: center;
     font-size: 24px;
-    border-radius: 25px;
+    position: absolute;
+    top: 600px;
 }
 
 ul {
@@ -88,21 +90,25 @@ li {
 }
 
 .search_food {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(0, 0, 0);
     padding: 20px;
     text-align: center;
     font-size: 24px;
     position: absolute;
-    width: 300px;
+    width: 400px;
     height: 100px;
-    top: 500px;
-    left: 800px;
+    top: 425px;
+    left: 400px;
     background-color: #414770;
+    border-radius: 50px;
 }
 
 form input[type="text"] {
-    width: 100%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 80%;
+    height: 20px;
+    position: absolute;
+    left:  40px;
     padding: 5px;
     margin-bottom: 10px;
 }
@@ -120,7 +126,7 @@ form button {
     background-color: white;
     cursor: pointer;
     top: 100px;
-    left: 130px;
+    left: 160px;
     width: 100px;
     height: 30px;
 }
