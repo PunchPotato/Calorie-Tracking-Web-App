@@ -1,4 +1,5 @@
 from email.mime.text import MIMEText
+import json
 import re
 import secrets
 import smtplib
@@ -7,6 +8,8 @@ import time
 from flask import Flask, redirect, render_template, request, session, url_for
 import pymysql
 import os
+
+import requests
 
 foods = []
 
@@ -275,10 +278,98 @@ def resetpassword():
                 pass
     return render_template('resetpassword.html')
 
+class FoodManager:
+    def __init__(self):
+        self.total_calories = 500
+        self.food_data = ""
+        self.buttons = []
+        self.current_y = 0
+
+    def update_food(self, name, calories, serving_size_g, fat_total_g,
+                    fat_saturated_g, protein_g, sodium_mg, potassium_mg,
+                    cholesterol_mg, carbohydrates_total_g, fiber_g, sugar_g):
+
+        new_button = tk.Button(self.frame, text="", font=custom_font, bg='#b3b5ba', bd=0,
+                               highlightbackground="#000000", highlightthickness=10, width=30,
+                               command=lambda: self.show_food_info(name, calories, serving_size_g,
+                                                                   fat_total_g, fat_saturated_g,
+                                                                   protein_g, sodium_mg, potassium_mg,
+                                                                   cholesterol_mg, carbohydrates_total_g,
+                                                                   fiber_g, sugar_g))
+        delete_button = tk.Button(new_button, text="Delete", font=custom_font, bg='red', fg='white',
+                                  bd=0, command=lambda button=new_button: self.delete_food(button))
+
+        if self.buttons:
+            self.current_y += 20
+        new_button.pack(pady=(0, 5), padx=0)
+        delete_button.pack(padx=200)
+        new_button.config(text=f"{name}:                   {calories} cals".title())
+        new_button.nutrition = {
+            "name": name,
+            "calories": calories,
+            "serving_size_g": serving_size_g,
+            "fat_total_g": fat_total_g,
+            "fat_saturated_g": fat_saturated_g,
+            "protein_g": protein_g,
+            "sodium_mg": sodium_mg,
+            "potassium_mg": potassium_mg,
+            "cholesterol_mg": cholesterol_mg,
+            "carbohydrates_total_g": carbohydrates_total_g,
+            "fiber_g": fiber_g,
+            "sugar_g": sugar_g
+        }
+        self.buttons.append(new_button)
+
+        self.total_calories += calories
+        self.calorie_sum_label.config(text=f'Total Calories: {self.total_calories}')
+        self.calorie_sum_label.place(y=120, x=75)
+
+# Create an instance of the class
+food_manager = FoodManager()
+
+# Flask route for fetching food information
 @app.route('/calories', methods=['GET', 'POST'])
 def calories():
-    total_calories = 500
-    return render_template('calories.html', total_calories=total_calories,  foods=foods)
+    if request.method == 'POST':
+        query = request.form.get('foodtextbox')
+        api_key = os.environ.get('MY_API_KEY')
+        api_url = f'https://api.api-ninjas.com/v1/nutrition?query={query}'
+        headers = {'X-Api-Key': api_key}
+
+        response = requests.get(api_url, headers=headers)
+
+        if response.status_code == requests.codes.ok:
+            json_data = response.text
+            data = json.loads(json_data)
+
+            if data:
+                name = data[0]["name"]
+                calories = data[0]["calories"]
+                serving_size_g = data[0]["serving_size_g"]
+                fat_total_g = data[0]["fat_total_g"]
+                fat_saturated_g = data[0]["fat_saturated_g"]
+                protein_g = data[0]["protein_g"]
+                sodium_mg = data[0]["sodium_mg"]
+                potassium_mg = data[0]["potassium_mg"]
+                cholesterol_mg = data[0]["cholesterol_mg"]
+                carbohydrates_total_g = data[0]["carbohydrates_total_g"]
+                fiber_g = data[0]["fiber_g"]
+                sugar_g = data[0]["sugar_g"]
+
+                # Call the update_food method to add the food item
+                food_manager.update_food(name, calories, serving_size_g, fat_total_g, fat_saturated_g,
+                                         protein_g, sodium_mg, potassium_mg, cholesterol_mg,
+                                         carbohydrates_total_g, fiber_g, sugar_g)
+
+            else:
+                # Handle the case where data is empty (no results from the API)
+                food_manager.food_data = "No data available for the given query."
+        else:
+            # Handle the case where the API request was not successful
+            print("Error:", response.status_code, response.text)
+
+    return render_template('calories.html', total_calories=food_manager.total_calories,
+                           foods=food_manager.buttons, food_data=food_manager.food_data)
 
 @app.route('/add_foods', methods=['POST'])
 def add_food():
