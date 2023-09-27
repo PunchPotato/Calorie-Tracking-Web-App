@@ -285,7 +285,7 @@ class FoodManager:
         self.buttons = []
         self.current_y = 0
 
-    def update_food(self, name, calories, serving_size_g, fat_total_g,
+    '''def update_food(self, name, calories, serving_size_g, fat_total_g,
                     fat_saturated_g, protein_g, sodium_mg, potassium_mg,
                     cholesterol_mg, carbohydrates_total_g, fiber_g, sugar_g):
 
@@ -298,6 +298,7 @@ class FoodManager:
                                                                    fiber_g, sugar_g))
         delete_button = tk.Button(new_button, text="Delete", font=custom_font, bg='red', fg='white',
                                   bd=0, command=lambda button=new_button: self.delete_food(button))
+
 
         if self.buttons:
             self.current_y += 20
@@ -323,6 +324,8 @@ class FoodManager:
         self.total_calories += calories
         self.calorie_sum_label.config(text=f'Total Calories: {self.total_calories}')
         self.calorie_sum_label.place(y=120, x=75)
+
+    '''
 
 # Create an instance of the class
 food_manager = FoodManager()
