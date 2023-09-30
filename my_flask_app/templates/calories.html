@@ -31,10 +31,11 @@
                 <p>Food will be added here!</p>
                 <ul>
                     {% for food in foods %}
-                    <li>{{ food }}</li>
+                    <li>{{ food.name }}: {{ food.calories }} cals</li>
                     {% endfor %}
                 </ul>
             </div>
+        </div>
             <div class="search_food">
             <form action="{{ url_for('add_food') }}" method="post">
                 <input id="foodtextbox"type="text" name="new_food" placeholder="Search Food Here!">

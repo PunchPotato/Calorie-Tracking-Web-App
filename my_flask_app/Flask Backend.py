@@ -278,34 +278,17 @@ def resetpassword():
                 pass
     return render_template('resetpassword.html')
 
+foods = []
+
 class FoodManager:
     def __init__(self):
         self.total_calories = 500
         self.food_data = ""
-        self.buttons = []
-        self.current_y = 0
 
-    '''def update_food(self, name, calories, serving_size_g, fat_total_g,
+    def update_food(self, name, calories, serving_size_g, fat_total_g,
                     fat_saturated_g, protein_g, sodium_mg, potassium_mg,
                     cholesterol_mg, carbohydrates_total_g, fiber_g, sugar_g):
-
-        new_button = tk.Button(self.frame, text="", font=custom_font, bg='#b3b5ba', bd=0,
-                               highlightbackground="#000000", highlightthickness=10, width=30,
-                               command=lambda: self.show_food_info(name, calories, serving_size_g,
-                                                                   fat_total_g, fat_saturated_g,
-                                                                   protein_g, sodium_mg, potassium_mg,
-                                                                   cholesterol_mg, carbohydrates_total_g,
-                                                                   fiber_g, sugar_g))
-        delete_button = tk.Button(new_button, text="Delete", font=custom_font, bg='red', fg='white',
-                                  bd=0, command=lambda button=new_button: self.delete_food(button))
-
-
-        if self.buttons:
-            self.current_y += 20
-        new_button.pack(pady=(0, 5), padx=0)
-        delete_button.pack(padx=200)
-        new_button.config(text=f"{name}:                   {calories} cals".title())
-        new_button.nutrition = {
+        food_item = {
             "name": name,
             "calories": calories,
             "serving_size_g": serving_size_g,
@@ -319,13 +302,12 @@ class FoodManager:
             "fiber_g": fiber_g,
             "sugar_g": sugar_g
         }
-        self.buttons.append(new_button)
 
+        # Add the food item to the global list
+        foods.append(food_item)
+
+        # Update total calories as a property of the FoodManager instance
         self.total_calories += calories
-        self.calorie_sum_label.config(text=f'Total Calories: {self.total_calories}')
-        self.calorie_sum_label.place(y=120, x=75)
-
-    '''
 
 # Create an instance of the class
 food_manager = FoodManager()
@@ -363,23 +345,28 @@ def calories():
                 food_manager.update_food(name, calories, serving_size_g, fat_total_g, fat_saturated_g,
                                          protein_g, sodium_mg, potassium_mg, cholesterol_mg,
                                          carbohydrates_total_g, fiber_g, sugar_g)
-
             else:
-                # Handle the case where data is empty (no results from the API)
                 food_manager.food_data = "No data available for the given query."
-        else:
-            # Handle the case where the API request was not successful
-            print("Error:", response.status_code, response.text)
 
     return render_template('calories.html', total_calories=food_manager.total_calories,
-                           foods=food_manager.buttons, food_data=food_manager.food_data)
+                           foods=foods, food_data=food_manager.food_data)
 
 @app.route('/add_foods', methods=['POST'])
 def add_food():
-    global foods
     new_foods = request.form.get('new_food')
     if new_foods:
-        foods.append(new_foods)
+        # Assuming new_foods is a string representing the new food item
+        # You can parse it and extract relevant information
+        # For example, splitting it by commas
+        food_details = new_foods.split(',')
+        if len(food_details) == 13:
+            # Assuming the format is name,calories,serving_size_g,fat_total_g,fat_saturated_g,protein_g,sodium_mg,potassium_mg,cholesterol_mg,carbohydrates_total_g,fiber_g,sugar_g
+            name, calories, serving_size_g, fat_total_g, fat_saturated_g, protein_g, sodium_mg, potassium_mg, cholesterol_mg, carbohydrates_total_g, fiber_g, sugar_g = food_details
+            # Call the update_food method to add the manually entered food item
+            food_manager.update_food(name, int(calories), int(serving_size_g), int(fat_total_g), int(fat_saturated_g),
+                                     int(protein_g), int(sodium_mg), int(potassium_mg), int(cholesterol_mg),
+                                     int(carbohydrates_total_g), int(fiber_g), int(sugar_g))
+            
     return redirect(url_for('calories'))
 
 @app.route('/exercise', methods=['GET', 'POST'])
