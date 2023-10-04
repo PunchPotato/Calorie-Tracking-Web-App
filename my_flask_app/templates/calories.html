@@ -29,6 +29,7 @@
         <div class="container">
             <div class="expanding-box">
                 <p>Food will be added here!</p>
+                <span>{{ food_data }}</span>
                 <ul>
                     {% for food in foods %}
                     <li>{{ food.name }}: {{ food.calories }} cals</li>

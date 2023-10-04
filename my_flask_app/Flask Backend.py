@@ -283,7 +283,7 @@ foods = []
 class FoodManager:
     def __init__(self):
         self.total_calories = 500
-        self.food_data = ""
+        self.food_data = foods
 
     def update_food(self, name, calories, serving_size_g, fat_total_g,
                     fat_saturated_g, protein_g, sodium_mg, potassium_mg,
@@ -354,19 +354,17 @@ def calories():
 @app.route('/add_foods', methods=['POST'])
 def add_food():
     new_foods = request.form.get('new_food')
+    
     if new_foods:
-        # Assuming new_foods is a string representing the new food item
-        # You can parse it and extract relevant information
-        # For example, splitting it by commas
         food_details = new_foods.split(',')
+        
         if len(food_details) == 13:
-            # Assuming the format is name,calories,serving_size_g,fat_total_g,fat_saturated_g,protein_g,sodium_mg,potassium_mg,cholesterol_mg,carbohydrates_total_g,fiber_g,sugar_g
             name, calories, serving_size_g, fat_total_g, fat_saturated_g, protein_g, sodium_mg, potassium_mg, cholesterol_mg, carbohydrates_total_g, fiber_g, sugar_g = food_details
-            # Call the update_food method to add the manually entered food item
+            
             food_manager.update_food(name, int(calories), int(serving_size_g), int(fat_total_g), int(fat_saturated_g),
                                      int(protein_g), int(sodium_mg), int(potassium_mg), int(cholesterol_mg),
                                      int(carbohydrates_total_g), int(fiber_g), int(sugar_g))
-            
+    
     return redirect(url_for('calories'))
 
 @app.route('/exercise', methods=['GET', 'POST'])
