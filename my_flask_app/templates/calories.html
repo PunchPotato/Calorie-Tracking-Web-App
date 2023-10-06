@@ -24,12 +24,15 @@
             </form>
         </div>
         <div class="box_2">
-            Total Calories: <span>{{ total_calories }}</span> Cals
+            <p id="totalcaloriestext">Total Calories: <span>{{ total_calories }}</span> Cals</p>
         </div>
         <div class="container">
             <div class="expanding-box">
                 <p>Food will be added here!</p>
-                <span>{{ food_data }}</span>
+                {% if food_data %}
+                    <p>Updated Food Data:</p>
+                    <span>{{ food_data }}</span>
+                {% endif %}
                 <ul>
                     {% for food in foods %}
                     <li>{{ food.name }}: {{ food.calories }} cals</li>
@@ -38,7 +41,7 @@
             </div>
         </div>
             <div class="search_food">
-            <form action="{{ url_for('add_food') }}" method="post">
+            <form action="{{ url_for('calories') }}" method="post">
                 <input id="foodtextbox"type="text" name="new_food" placeholder="Search Food Here!">
                 <button id="FoodButton" type="submit">Add Food!</button>
             </div>
