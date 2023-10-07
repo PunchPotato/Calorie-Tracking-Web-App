@@ -278,16 +278,16 @@ def resetpassword():
                 pass
     return render_template('resetpassword.html')
 
-foods = []
-
 class FoodManager:
     def __init__(self):
-        self.total_calories = 500
-        self.food_data = "No data available"
+        self.foods = []
+        self.total_calories = 0
+        self.food_data = ""
 
-    def update_food(self, name, calories, serving_size_g, fat_total_g,
-                    fat_saturated_g, protein_g, sodium_mg, potassium_mg,
-                    cholesterol_mg, carbohydrates_total_g, fiber_g, sugar_g):
+    def update_food(self, name, calories, serving_size_g, fat_total_g, fat_saturated_g,
+                    protein_g, sodium_mg, potassium_mg, cholesterol_mg,
+                    carbohydrates_total_g, fiber_g, sugar_g):
+        # Create a dictionary to represent a food item
         food_item = {
             "name": name,
             "calories": calories,
@@ -303,14 +303,17 @@ class FoodManager:
             "sugar_g": sugar_g
         }
 
-        # Add the food item to the global list
-        foods.append(food_item)
+        # Add the food item to the list of foods
+        self.foods.append(food_item)
 
-        # Update total calories as a property of the FoodManager instance
+        # Update the total calories
         self.total_calories += calories
 
-        # Update food_data with the actual data
-        self.food_data = foods
+    def clear_data(self):
+        # Clear the stored data
+        self.foods = []
+        self.total_calories = 0
+        self.food_data = ""
 
 # Create an instance of the class
 food_manager = FoodManager()
@@ -318,6 +321,8 @@ food_manager = FoodManager()
 # Flask route for fetching food information
 @app.route('/calories', methods=['GET', 'POST'])
 def calories():
+    data = []  
+    
     if request.method == 'POST':
         query = request.form.get('foodtextbox')
         api_key = os.environ.get('MY_API_KEY')
@@ -351,8 +356,7 @@ def calories():
             else:
                 food_manager.food_data = "No data available for the given query."
 
-    return render_template('calories.html', total_calories=food_manager.total_calories,
-                           foods=foods, food_data=food_manager.food_data)
+    return render_template('calories.html', nutrition_data=data, food_data=food_manager.food_data)
 
 
 @app.route('/exercise', methods=['GET', 'POST'])
