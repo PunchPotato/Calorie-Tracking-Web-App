@@ -328,6 +328,7 @@ def calories():
         api_key = os.environ.get('MY_API_KEY')
         api_url = f'https://api.api-ninjas.com/v1/nutrition?query={query}'
         headers = {'X-Api-Key': api_key}
+        app.logger.info(api_url)
 
         response = requests.get(api_url, headers=headers)
 
@@ -356,7 +357,7 @@ def calories():
             else:
                 food_manager.food_data = "No data available for the given query."
 
-    return render_template('calories.html', nutrition_data=data, food_data=food_manager.food_data)
+    return render_template('calories.html', nutrition_data=data, food_data=food_manager.food_data, total_calories=food_manager.total_calories)
 
 
 @app.route('/exercise', methods=['GET', 'POST'])
