@@ -189,12 +189,6 @@ form button {
     height: 50px;
 }
 
-#BackgroundImage {
-    position: fixed;
-    top: 50px;
-    left: 75px;
-}
-
 main {
     max-width: 800px;
     margin: 2rem auto;

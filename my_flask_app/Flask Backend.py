@@ -360,6 +360,10 @@ def calories():
     return render_template('calories.html', nutrition_data=data, food_data=food_manager.food_data, total_calories=food_manager.total_calories)
 
 
+@app.route('/nutrition', methods=['GET', 'POST'])
+def nutrition():
+    return render_template('nutrition.html')
+
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():
     return 'exercise page'

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Flask Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='nutrition.css') }}">
+</head>
+<body>
+    <header class="header">
+    <h1 id="Everything", font>Everything</h1>
+    <h1 id="Fitness">Fitness</h1>
+    <form action="{{ url_for('login') }}" method="post">
+        <button id="LogOutButton" type="submit">Log Out!</button>
+    </form>
+    </header>
+    <main>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+</body>
+</html>

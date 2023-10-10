@@ -30,7 +30,9 @@
             <div class="expanding-box">
                 <p>Food will be added here!</p>
                 {% if nutrition_data %}
-                    <p><strong>Name:</strong> {{ nutrition_data[0]["name"] }}</p>
+                    <form method="POST" action="{{ url_for('nutrition') }}">
+                        <button><strong>Name:</strong> {{ nutrition_data[0]["name"] }}</button>
+                    </form>
                     <p><strong>Calories:</strong> {{ nutrition_data[0]["calories"] }}</p>
                     <p><strong>Serving Size (g):</strong> {{ nutrition_data[0]["serving_size_g"] }}</p>
                     <p><strong>Total Fat (g):</strong> {{ nutrition_data[0]["fat_total_g"] }}</p>
