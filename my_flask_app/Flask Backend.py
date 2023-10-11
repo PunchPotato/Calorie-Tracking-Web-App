@@ -12,6 +12,8 @@ import os
 import requests
 
 foods = []
+app = Flask(__name__, static_folder='static')
+app.secret_key = secrets.token_hex(16)
 
 class Database:
     def __init__(self):
@@ -45,9 +47,6 @@ class UserAuthentication:
         query = 'INSERT INTO user_data (email, username, password) VALUES (%s, %s, %s)'
         self.db.cursor.execute(query, (email, username, password))
         self.db.connection.commit()
-
-app = Flask(__name__, static_folder='static')
-app.secret_key = secrets.token_hex(16)
 
 @app.route('/')
 def index():
