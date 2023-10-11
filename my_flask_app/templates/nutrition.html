@@ -13,6 +13,22 @@
     </form>
     </header>
     <main>
+        {% if nutrition_data %}
+            <p><strong>Name:</strong> {{ nutrition_data[0]["name"] }}</p>
+            <p><strong>Calories:</strong> {{ nutrition_data[0]["calories"] }}</p>
+            <p><strong>Serving Size (g):</strong> {{ nutrition_data[0]["serving_size_g"] }}</p>
+            <p><strong>Total Fat (g):</strong> {{ nutrition_data[0]["fat_total_g"] }}</p>
+            <p><strong>Saturated Fat (g):</strong> {{ nutrition_data[0]["fat_saturated_g"] }}</p>
+            <p><strong>Protein (g):</strong> {{ nutrition_data[0]["protein_g"] }}</p>
+            <p><strong>Sodium (mg):</strong> {{ nutrition_data[0]["sodium_mg"] }}</p>
+            <p><strong>Potassium (mg):</strong> {{ nutrition_data[0]["potassium_mg"] }}</p>
+            <p><strong>Cholesterol (mg):</strong> {{ nutrition_data[0]["cholesterol_mg"] }}</p>
+            <p><strong>Total Carbohydrates (g):</strong> {{ nutrition_data[0]["carbohydrates_total_g"] }}</p>
+            <p><strong>Fiber (g):</strong> {{ nutrition_data[0]["fiber_g"] }}</p>
+            <p><strong>Sugar (g):</strong> {{ nutrition_data[0]["sugar_g"] }}</p>
+        {% else %}
+            <p class="error">{{ food_data }}</p>
+        {% endif %}
     </main>
     
     <footer>

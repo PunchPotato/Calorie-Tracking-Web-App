@@ -361,7 +361,9 @@ def calories():
 
 @app.route('/nutrition', methods=['GET', 'POST'])
 def nutrition():
-    return render_template('nutrition.html')
+    nutrition_data = session.pop('nutrition_data', None)
+
+    return render_template('nutrition.html', nutrition_data=nutrition_data)
 
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():
