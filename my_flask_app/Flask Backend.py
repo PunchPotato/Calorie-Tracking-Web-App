@@ -281,7 +281,7 @@ class FoodManager:
         self.foods = []
         self.total_calories = 0
         self.food_data = ""
-
+        
     def update_food(self, name, calories, serving_size_g, fat_total_g, fat_saturated_g,
                     protein_g, sodium_mg, potassium_mg, cholesterol_mg,
                     carbohydrates_total_g, fiber_g, sugar_g):
