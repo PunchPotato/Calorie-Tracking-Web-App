@@ -58,9 +58,7 @@ header {
     right: 400px;
     text-align: center;
     border-radius: 50px;
-  }
-  #totalcaloriestext{
-    color: aliceblue
+    color: aliceblue;
   }
 
   .container {
@@ -73,6 +71,7 @@ header {
 .expanding-box {
     background-color: #414770;;
     width: 1080px;
+    color: aliceblue;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(0, 0, 0);
     padding: 20px;
@@ -81,17 +80,6 @@ header {
     position: absolute;
     top: 580px;
     border-radius: 50px;
-}
-#foodaddtext{
-    color: aliceblue;
-}
-
-#caloriestext{
-    color: aliceblue;
-}
-
-#caloriestextnumber{
-    color: aliceblue;
 }
 
 ul {
@@ -144,9 +132,27 @@ form button {
     border: 1px transparent;
     color: aliceblue;
     top: 100px;
-    left: 160px;
+    left: 140px;
     width: 150px;
     height: 50px;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+#caloriesinfo{
+    background-color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px 20px;
+    font-size: larger;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px transparent;
+    color: aliceblue;
+    width: 450px;
+    height: 50px;
+    background-color: #414770;
 
     &:hover {
         background-color: rgba(0, 0, 0, 0.2);

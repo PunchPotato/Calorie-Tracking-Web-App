@@ -30,9 +30,8 @@
                 <p id="foodaddtext">Food will be added here!</p>
                 {% if nutrition_data %}
                     <form method="POST" action="{{ url_for('nutrition') }}">
-                        <button><strong>Name:</strong> {{ nutrition_data[0]["name"] }}</button>
+                        <button id="caloriesinfo">{{ nutrition_data[0]["name"] }} - Calories: {{ nutrition_data[0]["calories"] }}</button>
                     </form>
-                    <p><strong id="caloriestext">Calories:</strong> {{ nutrition_data[0]["calories"] }}</p>
                 {% else %}
                     <p class="error">{{ food_data }}</p>
                 {% endif %}
