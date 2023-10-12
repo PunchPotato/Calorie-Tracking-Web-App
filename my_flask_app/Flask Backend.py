@@ -229,7 +229,6 @@ def resetpassword():
         entered_password = request.form.get('passwordtextbox')
         entered_comfirm_password = request.form.get('comfirmpasswordtextbox')
         email = session.get('temp_email', None)
-        print("Entered code:", entered_code)
 
         if entered_code == '' or entered_password == '' or entered_comfirm_password == '':
             return render_template('resetpassword.html', error_message="Error, All fields must be filled.")
@@ -317,7 +316,6 @@ class FoodManager:
 # Create an instance of the class
 food_manager = FoodManager()
 
-# Flask route for fetching food information
 @app.route('/calories', methods=['GET', 'POST'])
 def calories():
     data = []  
@@ -327,7 +325,6 @@ def calories():
         api_key = os.environ.get('MY_API_KEY')
         api_url = f'https://api.api-ninjas.com/v1/nutrition?query={query}'
         headers = {'X-Api-Key': api_key}
-        app.logger.info(api_url)
 
         response = requests.get(api_url, headers=headers)
 
@@ -358,11 +355,10 @@ def calories():
 
     return render_template('calories.html', nutrition_data=data, food_data=food_manager.food_data, total_calories=food_manager.total_calories)
 
-
 @app.route('/nutrition', methods=['GET', 'POST'])
 def nutrition():
     nutrition_data = session.pop('nutrition_data', None)
-
+    app.logger.info(nutrition_data)
     return render_template('nutrition.html', nutrition_data=nutrition_data)
 
 @app.route('/exercise', methods=['GET', 'POST'])
@@ -370,7 +366,7 @@ def exercise():
     return 'exercise page'
 
 @app.route('/profile', methods=['GET', 'POST'])
-def profile():
+def profile():  
     return 'profile page'
 
 if __name__ == '__main__':
