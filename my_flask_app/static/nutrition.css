@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    width: 1898px;
+    width: 1881px;
     height: 200px;
     background-color: #414770;
     border: 1px solid #000;
@@ -39,18 +39,124 @@ header {
     left: 400px;
 }
 
+.box {
+    font-size: xx-large;
+    width: 300px;
+    height: 50px;
+    background-color: #414770;;
+    padding: 20px;
+    position: absolute;
+    width: 1060px;
+    height: 840px;
+    top: 325px;
+    right: 400px;
+    text-align: center;
+    border-radius: 50px;
+    color: aliceblue;
+  }
+
+#BackButton{
+    background-color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position:absolute;
+    font-size: large;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px transparent;
+    color: aliceblue;
+    left: 10px;
+    width: 100px;
+    height: 50px;
+    background-color: #414770;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    }
+
+
 #LogOutButton {
     position: absolute;
+    background-color: transparent;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px 20px;
     font-size: larger;
-    border-radius: 5px;
-    border: 2px solid #000;
-    background-color: white;
     cursor: pointer;
-    top: 90px;
+    transition: background-color 0.3s ease;
+    border: 1px transparent;
+    color: aliceblue;
+    top: 50px;
     right: 400px;
-    width: 100px;
-    height: 30px;
+    width: 150px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        background-color: #414770
+    }
+}
+
+#DietTrackingButton {
+    position: absolute;
+    background-color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px 20px;
+    font-size: larger;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px transparent;
+    color: aliceblue;
+    bottom:10px;
+    left: 400px;
+    width: 150px;
+    height: 50px;
+    
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2); /* Set see-through dark background color */
+    }
+
+}
+
+#ExerciseButton {
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    bottom: 10px;
+    left: 870px;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: larger;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px transparent;
+    color: aliceblue; /* Add a smooth transition */
+
+    /* Add hover effect */
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2); /* Set see-through dark background color */
+    }
+}
+
+
+#ProfileButton {
+    position: absolute;
+    background-color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px 20px;
+    font-size: larger;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px transparent;
+    color: aliceblue;
+    bottom: 10px;
+    right: 400px;
+    width: 150px;
+    height: 50px;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2); /* Set see-through dark background color */
+    }
 }
 
 main {

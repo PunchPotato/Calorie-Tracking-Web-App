@@ -10,7 +10,10 @@
     <h1 id="Fitness">Fitness</h1>
     <form action="{{ url_for('login') }}" method="post">
         <button id="LogOutButton" type="submit">Log Out</button>
+    </form>
+    <form action="{{ url_for('calories') }}" method="post">
         <button id="DietTrackingButton" type="submit">Diet Tracking</button>
+    </form>
         <form action="{{ url_for('exercise') }}" method="post">
             <button id="ExerciseButton" type="submit">Exercises</button>
         </form>
@@ -27,7 +30,7 @@
         </div>
         <div class="container">
             <div class="expanding-box">
-                <p id="foodaddtext">Food will be added here!</p>
+                <p id="foodaddtext">Tracked Food:</p>
                 {% if nutrition_data %}
                     <form method="POST" action="{{ url_for('nutrition') }}">
                         <button id="caloriesinfo">{{ nutrition_data[0]["name"] }} - Calories: {{ nutrition_data[0]["calories"] }}</button>

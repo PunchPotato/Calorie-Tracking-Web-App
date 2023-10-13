@@ -88,8 +88,10 @@ header {
 }
 
 #foodaddtext{
+    font-size: xx-large;
     color: aliceblue;
 }
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -213,7 +215,7 @@ form button {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     bottom: 10px;
-    left: 880px;
+    left: 870px;
     width: 150px;
     height: 50px;
     background-color: transparent;

@@ -350,6 +350,8 @@ def calories():
                 food_manager.update_food(name, calories, serving_size_g, fat_total_g, fat_saturated_g,
                                          protein_g, sodium_mg, potassium_mg, cholesterol_mg,
                                          carbohydrates_total_g, fiber_g, sugar_g)
+                
+                session['data'] = data
             else:
                 food_manager.food_data = "No data available for the given query."
 
@@ -357,9 +359,9 @@ def calories():
 
 @app.route('/nutrition', methods=['GET', 'POST'])
 def nutrition():
-    nutrition_data = session.pop('nutrition_data', None)
-    app.logger.info(nutrition_data)
-    return render_template('nutrition.html', nutrition_data=nutrition_data)
+    
+    data = session.get('data', [])
+    return render_template('nutrition.html', nutrition_data=data, food_data=food_manager.food_data)
 
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():

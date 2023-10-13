@@ -9,17 +9,31 @@
     <h1 id="Everything", font>Everything</h1>
     <h1 id="Fitness">Fitness</h1>
     <form action="{{ url_for('login') }}" method="post">
-        <button id="LogOutButton" type="submit">Log Out!</button>
+        <button id="LogOutButton" type="submit">Log Out</button>
     </form>
+    <form action="{{ url_for('calories') }}" method="post">
+        <button id="DietTrackingButton" type="submit">Diet Tracking</button>
+    </form>
+        <form action="{{ url_for('exercise') }}" method="post">
+            <button id="ExerciseButton" type="submit">Exercises</button>
+        </form>
+        <form action="{{ url_for('profile') }}" method="post">
+            <button id="ProfileButton" type="submit">Profile</button>
+        </form>
     </header>
     <main>
-        {% if nutrition_data %}
-            {% for key, value in nutrition_data[0].items() %}
-                <p><strong>{{ key|title }}:</strong> {{ value }}</p>
-            {% endfor %}
-        {% else %}
-            <p class="error">{{ food_data }}</p>
-        {% endif %}
+        <div class="box">
+            <form action="{{ url_for('calories') }}" method="post">
+                <button id="BackButton" type="submit">Back</button>
+            </form>
+            {% if nutrition_data %}
+                {% for key, value in nutrition_data[0].items() %}
+                    <p id="nutrition"><strong>{{ key|title }}:</strong> {{ value }}</p>
+                {% endfor %}
+            {% else %}
+                <p class="error">{{ food_data }}</p>
+            {% endif %}
+        </div>
     </main>
     <footer>
         <p>&copy; 2023 My Website</p>
