@@ -10,15 +10,15 @@ body {
 }
 
 header {
-    width: 1881px;
-    height: 200px;
-    background-color: #414770;
-    border: 1px solid #000;
+    width: 1883px;
+    height: 500px;
     padding: 10px;
     position: absolute;
-    top: 15%;
+    top:28%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20page3.png?raw=true');
+    background-size: cover;
 }
 
 #Everything {
@@ -107,21 +107,20 @@ header {
     transition: background-color 0.3s ease;
     border: 1px transparent;
     color: aliceblue;
-    bottom:10px;
+    bottom: 310px; /* Adjusted from 210px */
     left: 400px;
     width: 150px;
     height: 50px;
-    
+
     &:hover {
         background-color: rgba(0, 0, 0, 0.2); /* Set see-through dark background color */
     }
-
 }
 
 #ExerciseButton {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    bottom: 10px;
+    bottom: 310px; /* Adjusted from 210px */
     left: 870px;
     width: 150px;
     height: 50px;
@@ -139,7 +138,6 @@ header {
     }
 }
 
-
 #ProfileButton {
     position: absolute;
     background-color: transparent;
@@ -150,7 +148,7 @@ header {
     transition: background-color 0.3s ease;
     border: 1px transparent;
     color: aliceblue;
-    bottom: 10px;
+    bottom: 310px; /* Adjusted from 210px */
     right: 400px;
     width: 150px;
     height: 50px;

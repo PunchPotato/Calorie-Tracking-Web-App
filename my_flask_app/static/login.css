@@ -10,11 +10,11 @@ body {
 }
 
 header {
-    width: 1898px;
+    width: 1883px;
     height: 900px;
     padding: 10px;
     position: absolute;
-    top: 50%;
+    top: 49%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/login%20page%203.png?raw=true');

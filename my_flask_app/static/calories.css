@@ -10,14 +10,14 @@ body {
 }
 
 header {
-    width: 1898px;
-    height: 700px;
+    width: 1883px;
+    height: 500px;
     padding: 10px;
     position: absolute;
-    top:38%;
+    top:28%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20page.png?raw=true');
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20page3.png?raw=true');
     background-size: cover;
 }
 
@@ -200,7 +200,7 @@ form button {
     transition: background-color 0.3s ease;
     border: 1px transparent;
     color: aliceblue;
-    bottom: 410px; /* Adjusted from 210px */
+    bottom: 310px; /* Adjusted from 210px */
     left: 400px;
     width: 150px;
     height: 50px;
@@ -213,7 +213,7 @@ form button {
 #ExerciseButton {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    bottom: 410px; /* Adjusted from 210px */
+    bottom: 310px; /* Adjusted from 210px */
     left: 870px;
     width: 150px;
     height: 50px;
@@ -241,7 +241,7 @@ form button {
     transition: background-color 0.3s ease;
     border: 1px transparent;
     color: aliceblue;
-    bottom: 410px; /* Adjusted from 210px */
+    bottom: 310px; /* Adjusted from 210px */
     right: 400px;
     width: 150px;
     height: 50px;
