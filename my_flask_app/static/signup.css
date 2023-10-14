@@ -11,13 +11,13 @@ body {
 
 header {
     width: 1898px;
-    height: 900px;
+    height: 1100px;
     padding: 10px;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/login%20page%203.png?raw=true');
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/signup%20page.png?raw=true');
     background-size: cover;
 }
 
@@ -39,18 +39,11 @@ header {
     left: 400px;
 }
 
-
-#BackgroundImage {
-    position: fixed;
-    top: 250px; /* Adjusted from 50px */
-    left: 335px; /* Adjusted from 75px */
-}
-
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 100px;
     position: absolute;
-    top: 200px; /* Adjusted from 0px */
+    top: 200px; /* Adjusted from 100px */
     left: 860px; /* Adjusted from 600px */
 }
 
@@ -58,7 +51,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 460px; /* Adjusted from 260px */
+    top: 460px; /* Adjusted from 360px */
     left: 500px; /* No change */
 }
 
@@ -66,7 +59,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 460px; /* Adjusted from 260px */
+    top: 460px; /* Adjusted from 360px */
     left: 760px; /* Adjusted from 500px */
     width: 500px;
 }
@@ -75,7 +68,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 560px; /* Adjusted from 360px */
+    top: 560px; /* Adjusted from 460px */
     left: 500px; /* No change */
 }
 
@@ -83,7 +76,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 560px; /* Adjusted from 360px */
+    top: 560px; /* Adjusted from 460px */
     left: 760px; /* Adjusted from 500px */
     width: 500px;
 }
@@ -92,7 +85,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 650px; /* Adjusted from 450px */
+    top: 650px; /* Adjusted from 550px */
     left: 500px; /* No change */
 }
 
@@ -100,7 +93,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 650px; /* Adjusted from 450px */
+    top: 650px; /* Adjusted from 550px */
     left: 760px; /* Adjusted from 500px */
     width: 500px;
 }
@@ -109,7 +102,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 750px; /* Adjusted from 550px */
+    top: 750px; /* Adjusted from 650px */
     left: 500px; /* No change */
 }
 
@@ -117,7 +110,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 750px; /* Adjusted from 550px */
+    top: 750px; /* Adjusted from 650px */
     left: 760px; /* Adjusted from 500px */
     width: 500px;
 }
@@ -127,13 +120,13 @@ h1 {
     font-size: xx-large;
     position: absolute;
     width: 320px;
-    top: 920px; /* Adjusted from 620px */
+    top: 845px; /* Adjusted from 745px */
     left: 850px; /* Adjusted from 590px */
 }
 
 #error {
     position: absolute;
-    top: 310px; /* No change */
+    top: 310px; /* Adjusted from 210px */
     left: 500px; /* No change */
 }
 
@@ -141,13 +134,13 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
     position: absolute;
-    top: 1030px; /* Adjusted from 730px */
+    top: 955px; /* Adjusted from 855px */
     left: 730px; /* No change */
 }
 
 #loginlink {
     position: absolute;
-    top: 1130px; /* Adjusted from 830px */
+    top: 1055px; /* Adjusted from 955px */
     left: 990px; /* Adjusted from 730px */
 }
 
@@ -156,7 +149,7 @@ h1 {
     align-items: center;
     margin-bottom: 10px;
     position: absolute;
-    top: 1000px; /* Adjusted from 700px */
+    top: 925px; /* Adjusted from 825px */
     left: 850px; /* Adjusted from 620px */
 }
 
