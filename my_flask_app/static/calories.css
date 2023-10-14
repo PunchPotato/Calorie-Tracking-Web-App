@@ -10,15 +10,15 @@ body {
 }
 
 header {
-    width: 1881px;
-    height: 200px;
-    background-color: #414770;
-    border: 1px solid #000;
+    width: 1898px;
+    height: 700px;
     padding: 10px;
     position: absolute;
-    top: 15%;
+    top:38%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20page.png?raw=true');
+    background-size: cover;
 }
 
 #Everything {
@@ -42,7 +42,7 @@ header {
 .box {
     width: 1080px;
     height: 50px;
-    background-color: #414770;;
+    background-color: white;;
     padding: 20px;
     position: absolute;
     top: 300px;
@@ -54,7 +54,7 @@ header {
     font-size: xx-large;
     width: 300px;
     height: 50px;
-    background-color: #414770;;
+    background-color: white;;
     padding: 20px;
     position: absolute;
     width: 400px;
@@ -63,7 +63,7 @@ header {
     right: 400px;
     text-align: center;
     border-radius: 50px;
-    color: aliceblue;
+    color: black;
   }
 
   .container {
@@ -74,9 +74,9 @@ header {
 }
 
 .expanding-box {
-    background-color: #414770;;
+    background-color: white;
     width: 1080px;
-    color: aliceblue;
+    color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(0, 0, 0);
     padding: 20px;
@@ -89,7 +89,7 @@ header {
 
 #foodaddtext{
     font-size: xx-large;
-    color: aliceblue;
+    color: black;
 }
 
 ul {
@@ -112,7 +112,7 @@ li {
     height: 140px;
     top: 325px;
     left: 400px;
-    background-color: #414770;
+    background-color: white;
     border-radius: 50px;
 }
 
@@ -140,7 +140,7 @@ form button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border: 1px transparent;
-    color: aliceblue;
+    color: black;
     top: 100px;
     left: 140px;
     width: 150px;
@@ -159,10 +159,10 @@ form button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border: 1px transparent;
-    color: aliceblue;
+    color: black;
     width: 450px;
     height: 50px;
-    background-color: #414770;
+    background-color: white;
 
     &:hover {
         background-color: rgba(0, 0, 0, 0.2);
@@ -200,21 +200,20 @@ form button {
     transition: background-color 0.3s ease;
     border: 1px transparent;
     color: aliceblue;
-    bottom:10px;
+    bottom: 410px; /* Adjusted from 210px */
     left: 400px;
     width: 150px;
     height: 50px;
-    
+
     &:hover {
         background-color: rgba(0, 0, 0, 0.2); /* Set see-through dark background color */
     }
-
 }
 
 #ExerciseButton {
     position: absolute;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    bottom: 10px;
+    bottom: 410px; /* Adjusted from 210px */
     left: 870px;
     width: 150px;
     height: 50px;
@@ -232,7 +231,6 @@ form button {
     }
 }
 
-
 #ProfileButton {
     position: absolute;
     background-color: transparent;
@@ -243,7 +241,7 @@ form button {
     transition: background-color 0.3s ease;
     border: 1px transparent;
     color: aliceblue;
-    bottom: 10px;
+    bottom: 410px; /* Adjusted from 210px */
     right: 400px;
     width: 150px;
     height: 50px;
