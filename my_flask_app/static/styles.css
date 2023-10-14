@@ -12,14 +12,13 @@ body {
 
 header {
     width: 1898px;
-    height: 1800px;
-    border: 1px solid #000;
+    height: 1200px;
     padding: 10px;
     position: absolute;
-    top: 100%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/home%20page%203.png?raw=true');
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/home%20page%204.png?raw=true');
     background-size: cover;
 }
 
