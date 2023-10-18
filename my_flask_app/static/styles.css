@@ -66,6 +66,14 @@ header {
     color: #ffffff;
 }
 
+#download_app {
+    position: absolute;
+    left: 825px;
+    top: 810px;
+    width: 100px;
+    height: 70px;
+}
+
 #barbell {
     position: absolute;
     right: 400px;
