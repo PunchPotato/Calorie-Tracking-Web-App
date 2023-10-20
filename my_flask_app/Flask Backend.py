@@ -369,7 +369,7 @@ def exercise():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():  
-    return 'profile page'
+    return render_template('profile.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
