@@ -365,7 +365,7 @@ def nutrition():
 
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():
-    return 'exercise page'
+    return render_template('exercise.html')
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():  
