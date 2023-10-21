@@ -30,7 +30,7 @@
         </div>
         <div class="container">
             <div class="expanding-box">
-                <p id="foodaddtext">Exercises:</p>
+                <p id="exerciseaddtext">Exercises:</p>
                 {% if nutrition_data %}
                     <form method="POST" action="{{ url_for('nutrition') }}">
                         <button id="caloriesinfo">{{ nutrition_data[0]["name"] }} - Calories: {{ nutrition_data[0]["calories"] }}</button>
@@ -40,7 +40,7 @@
                 {% endif %}
             </div>
         </div>
-            <div class="search_food">
+            <div class="search_exercise">
             <form action="{{ url_for('calories') }}" method="post">
                 <input id="foodtextbox"type="text" name="foodtextbox" placeholder="Search Exercises Here!">
                 <button id="FoodButton" type="submit">Add Exercises!</button>

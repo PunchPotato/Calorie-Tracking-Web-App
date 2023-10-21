@@ -17,7 +17,7 @@ header {
     top:28%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20page%207.png?raw=true');
+    background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/app%20page%208.png?raw=true');
     background-size: cover;
 }
 
@@ -54,6 +54,7 @@ header {
     text-align: center;
     border-radius: 50px;
     color: aliceblue;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.5);
   }
 
 #BackButton{
