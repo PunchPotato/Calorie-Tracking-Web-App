@@ -363,8 +363,85 @@ def nutrition():
     data = session.get('data', [])
     return render_template('nutrition.html', nutrition_data=data, food_data=food_manager.food_data)
 
+class ExerciseManager:
+    def __init__(self):
+        self.exercises = []
+        self._data = ""
+        
+    def update_food(self, name, calories, serving_size_g, fat_total_g, fat_saturated_g,
+                    protein_g, sodium_mg, potassium_mg, cholesterol_mg,
+                    carbohydrates_total_g, fiber_g, sugar_g):
+        # Create a dictionary to represent a food item
+        food_item = {
+            "name": name,
+            "calories": calories,
+            "serving_size_g": serving_size_g,
+            "fat_total_g": fat_total_g,
+            "fat_saturated_g": fat_saturated_g,
+            "protein_g": protein_g,
+            "sodium_mg": sodium_mg,
+            "potassium_mg": potassium_mg,
+            "cholesterol_mg": cholesterol_mg,
+            "carbohydrates_total_g": carbohydrates_total_g,
+            "fiber_g": fiber_g,
+            "sugar_g": sugar_g
+        }
+
+        # Add the food item to the list of foods
+        self.foods.append(food_item)
+
+        # Update the total calories
+        self.total_calories += calories
+
+    def clear_data(self):
+        # Clear the stored data
+        self.foods = []
+        self.total_calories = 0
+        self.food_data = ""
+
+# Create an instance of the class
+exercise_manager = ExerciseManager()
+
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():
+    
+    data = []  
+    
+    if request.method == 'POST':
+        query = request.form.get('foodtextbox')
+        api_key = os.environ.get('MY_API_KEY')
+        api_url = f'https://api.api-ninjas.com/v1/exercises?muscle={query}'
+        headers = {'X-Api-Key': api_key}
+
+        response = requests.get(api_url, headers=headers)
+
+        if response.status_code == requests.codes.ok:
+            json_data = response.text
+            data = json.loads(json_data)
+
+            if data:
+                name = data[0]["name"]
+                calories = data[0]["calories"]
+                serving_size_g = data[0]["serving_size_g"]
+                fat_total_g = data[0]["fat_total_g"]
+                fat_saturated_g = data[0]["fat_saturated_g"]
+                protein_g = data[0]["protein_g"]
+                sodium_mg = data[0]["sodium_mg"]
+                potassium_mg = data[0]["potassium_mg"]
+                cholesterol_mg = data[0]["cholesterol_mg"]
+                carbohydrates_total_g = data[0]["carbohydrates_total_g"]
+                fiber_g = data[0]["fiber_g"]
+                sugar_g = data[0]["sugar_g"]
+
+                # Call the update_food method to add the food item
+                food_manager.update_food(name, calories, serving_size_g, fat_total_g, fat_saturated_g,
+                                         protein_g, sodium_mg, potassium_mg, cholesterol_mg,
+                                         carbohydrates_total_g, fiber_g, sugar_g)
+                
+                session['data'] = data
+            else:
+                food_manager.food_data = "No data available for the given query."
+
     return render_template('exercise.html')
 
 @app.route('/profile', methods=['GET', 'POST'])
