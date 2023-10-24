@@ -24,26 +24,26 @@
     </header>
     
     <main>
-        </div>
-        <div class="box_2">
-            <p id="totalcaloriestext">Total Calories: <span>{{ total_calories }}</span> Cals</p>
-        </div>
         <div class="container">
             <div class="expanding-box">
                 <p id="exerciseaddtext">Exercises:</p>
-                {% if nutrition_data %}
-                    <form method="POST" action="{{ url_for('nutrition') }}">
-                        <button id="caloriesinfo">{{ nutrition_data[0]["name"] }} - Calories: {{ nutrition_data[0]["calories"] }}</button>
-                    </form>
+                {% if exercises_data %}
+                    {% for exercise in exercises_data %}
+                        <button id="exerciseinfo">{{ exercise["name"] }}</button>
+                        <button id="exerciseinfo">{{ exercise["name1"] }}</button>
+                        <button id="exerciseinfo">{{ exercise["name2"] }}</button>
+                        <button id="exerciseinfo">{{ exercise["name3"] }}</button>
+                        <button id="exerciseinfo">{{ exercise["name4"] }}</button>
+                        <button id="exerciseinfo">{{ exercise["name5"] }}</button>
+                    {% endfor %}
                 {% else %}
-                    <p class="error">{{ food_data }}</p>
+                    <p class="error">{{ exercise_data }}</p>
                 {% endif %}
             </div>
-        </div>
             <div class="search_exercise">
-            <form action="{{ url_for('calories') }}" method="post">
-                <input id="foodtextbox"type="text" name="foodtextbox" placeholder="Search Exercises Here!">
-                <button id="FoodButton" type="submit">Add Exercises!</button>
+            <form action="{{ url_for('exercise') }}" method="post">
+                <input id="exercisetextbox"type="text" name="exercisetextbox" placeholder="Search Exercises Here!">
+                <button id="ExerciseButton2" type="submit">Add Exercises!</button>
             </div>
             </form>
         </div>

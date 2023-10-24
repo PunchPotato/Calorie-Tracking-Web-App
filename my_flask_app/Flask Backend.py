@@ -366,40 +366,24 @@ def nutrition():
 class ExerciseManager:
     def __init__(self):
         self.exercises = []
-        self._data = ""
+        self.exercise_data = ""
         
-    def update_food(self, name, calories, serving_size_g, fat_total_g, fat_saturated_g,
-                    protein_g, sodium_mg, potassium_mg, cholesterol_mg,
-                    carbohydrates_total_g, fiber_g, sugar_g):
-        # Create a dictionary to represent a food item
-        food_item = {
+    def update_exercise(self, name, name1, name2, name3, name4, name5):
+        exercise_item = {
             "name": name,
-            "calories": calories,
-            "serving_size_g": serving_size_g,
-            "fat_total_g": fat_total_g,
-            "fat_saturated_g": fat_saturated_g,
-            "protein_g": protein_g,
-            "sodium_mg": sodium_mg,
-            "potassium_mg": potassium_mg,
-            "cholesterol_mg": cholesterol_mg,
-            "carbohydrates_total_g": carbohydrates_total_g,
-            "fiber_g": fiber_g,
-            "sugar_g": sugar_g
+            "name1": name1,
+            "name2": name2,
+            "name3": name3,
+            "name4": name4,
+            "name5": name5,
         }
 
-        # Add the food item to the list of foods
-        self.foods.append(food_item)
-
-        # Update the total calories
-        self.total_calories += calories
+        self.exercises.append(exercise_item)
 
     def clear_data(self):
-        # Clear the stored data
-        self.foods = []
-        self.total_calories = 0
-        self.food_data = ""
+        self.exercises = []
+        self.exercise_data = ""
 
-# Create an instance of the class
 exercise_manager = ExerciseManager()
 
 @app.route('/exercise', methods=['GET', 'POST'])
@@ -408,7 +392,7 @@ def exercise():
     data = []  
     
     if request.method == 'POST':
-        query = request.form.get('foodtextbox')
+        query = request.form.get('exercisetextbox')
         api_key = os.environ.get('MY_API_KEY')
         api_url = f'https://api.api-ninjas.com/v1/exercises?muscle={query}'
         headers = {'X-Api-Key': api_key}
@@ -421,28 +405,19 @@ def exercise():
 
             if data:
                 name = data[0]["name"]
-                calories = data[0]["calories"]
-                serving_size_g = data[0]["serving_size_g"]
-                fat_total_g = data[0]["fat_total_g"]
-                fat_saturated_g = data[0]["fat_saturated_g"]
-                protein_g = data[0]["protein_g"]
-                sodium_mg = data[0]["sodium_mg"]
-                potassium_mg = data[0]["potassium_mg"]
-                cholesterol_mg = data[0]["cholesterol_mg"]
-                carbohydrates_total_g = data[0]["carbohydrates_total_g"]
-                fiber_g = data[0]["fiber_g"]
-                sugar_g = data[0]["sugar_g"]
+                name1 = data[1]["name"]
+                name2 = data[2]["name"]
+                name3 = data[3]["name"]
+                name4 = data[4]["name"]
+                name5 = data[5]["name"]
 
-                # Call the update_food method to add the food item
-                food_manager.update_food(name, calories, serving_size_g, fat_total_g, fat_saturated_g,
-                                         protein_g, sodium_mg, potassium_mg, cholesterol_mg,
-                                         carbohydrates_total_g, fiber_g, sugar_g)
+                exercise_manager.update_exercise(name, name1, name2, name3, name4, name5)
                 
                 session['data'] = data
             else:
-                food_manager.food_data = "No data available for the given query."
+                exercise_manager.exercise_data = "No data available for the given query."
 
-    return render_template('exercise.html')
+    return render_template('exercise.html', exercises_data=exercise_manager.exercises, message=exercise_manager.exercise_data)
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():  
