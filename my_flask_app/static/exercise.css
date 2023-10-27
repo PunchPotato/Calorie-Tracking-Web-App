@@ -116,6 +116,24 @@ form button {
     padding: 5px 10px;
 }
 
+#exerciseinfo{
+    background-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px 20px;
+    font-size: larger;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px transparent;
+    color: black;
+    width: 450px;
+    height: 50px;
+    background-color: white;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
 #ExerciseButton2 {
     position: absolute;
     background-color: transparent;
@@ -128,7 +146,7 @@ form button {
     color: black;
     top: 100px;
     left: 240px;
-    width: 150px;
+    width: 170px;
     height: 50px;
 
     &:hover {
