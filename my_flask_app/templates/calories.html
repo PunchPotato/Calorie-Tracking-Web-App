@@ -32,9 +32,9 @@
             <div class="expanding-box">
                 <p id="foodaddtext">Tracked Food:</p>
                 {% if nutrition_data %}
-                    <form method="POST" action="{{ url_for('nutrition') }}">
+                    {% for nutrition in nutrition_data %}
                         <button id="caloriesinfo">{{ nutrition_data[0]["name"] }} - Calories: {{ nutrition_data[0]["calories"] }}</button>
-                    </form>
+                    {% endfor %}
                 {% else %}
                     <p class="error">{{ food_data }}</p>
                 {% endif %}
