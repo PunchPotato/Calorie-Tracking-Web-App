@@ -281,11 +281,10 @@ class FoodManager:
         self.foods = []
         self.total_calories = 0
         self.food_data = ""
-        
+
     def update_food(self, name, calories, serving_size_g, fat_total_g, fat_saturated_g,
                     protein_g, sodium_mg, potassium_mg, cholesterol_mg,
                     carbohydrates_total_g, fiber_g, sugar_g):
-        # Create a dictionary to represent a food item
         food_item = {
             "name": name,
             "calories": calories,
@@ -300,18 +299,29 @@ class FoodManager:
             "fiber_g": fiber_g,
             "sugar_g": sugar_g
         }
-
-        # Add the food item to the list of foods
         self.foods.append(food_item)
-
-        # Update the total calories
         self.total_calories += calories
 
+    def remove_food(self, name):
+        for food in self.foods:
+            if food["name"] == name:
+                self.total_calories -= food["calories"]
+                self.foods.remove(food)
+                break
+
     def clear_data(self):
-        # Clear the stored data
         self.foods = []
         self.total_calories = 0
         self.food_data = ""
+
+
+@app.route('/delete_food/<food_name>', methods=['POST'])
+def delete_food(food_name):
+    global food_manager
+    # Remove the food item and update the total calories
+    food_manager.remove_food(food_name)
+    # Redirect to the page where the list of foods is displayed
+    return redirect(url_for('calories'))
 
 # Create an instance of the class
 food_manager = FoodManager()

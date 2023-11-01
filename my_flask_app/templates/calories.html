@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>My Flask Website</title>
@@ -32,9 +31,12 @@
             <div class="expanding-box">
                 <p id="foodaddtext">Tracked Food:</p>
                 {% if nutrition_data %}
-                    {% for nutrition in nutrition_data %}
+                    <form method="POST" action="{{ url_for('nutrition') }}">
                         <button id="caloriesinfo">{{ nutrition_data[0]["name"] }} - Calories: {{ nutrition_data[0]["calories"] }}</button>
-                    {% endfor %}
+                    </form>
+                    <form method="post" action="{{ url_for('delete_food', food_name=nutrition_data[0]['name']) }}" style="display:inline;">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
                 {% else %}
                     <p class="error">{{ food_data }}</p>
                 {% endif %}
