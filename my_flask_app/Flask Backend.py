@@ -309,11 +309,6 @@ class FoodManager:
                 self.foods.remove(food)
                 break
 
-    def clear_data(self):
-        self.foods = []
-        self.total_calories = 0
-        self.food_data = ""
-
 
 @app.route('/delete_food/<food_name>', methods=['POST'])
 def delete_food(food_name):
