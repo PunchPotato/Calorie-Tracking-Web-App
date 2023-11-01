@@ -25,19 +25,19 @@ header {
 #Everything {
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: xxx-large;
+    font-size: x-large;
     position: absolute;
-    top: 0px;
-    left: 400px;
+    top: 27px;
+    left: 200px;
 }
 
 #Fitness {
     color: rgb(255, 246, 246);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: xxx-large;
+    font-size: x-large;
     position: absolute;
     top: 50px;
-    left: 400px;
+    left: 200px;
 }
 
 .my-button {
@@ -51,7 +51,7 @@ header {
     border: 1px transparent;
     color: aliceblue;
     top: 50px;
-    right: 400px;
+    right: 200px;
     width: 150px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -68,10 +68,10 @@ header {
 
 #download_app {
     position: absolute;
-    left: 825px;
-    top: 810px;
-    width: 100px;
-    height: 70px;
+    left: 300px;
+    top: 710px;
+    width: 300px;
+    height: 200px;
 }
 
 #barbell {
