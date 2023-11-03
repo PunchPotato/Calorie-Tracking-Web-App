@@ -22,21 +22,9 @@ header {
     background-size: cover;
 }
 
-#Everything {
-    color: black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: x-large;
+#logo{
     position: absolute;
     top: 27px;
-    left: 200px;
-}
-
-#Fitness {
-    color: rgb(255, 246, 246);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: x-large;
-    position: absolute;
-    top: 50px;
     left: 200px;
 }
 
