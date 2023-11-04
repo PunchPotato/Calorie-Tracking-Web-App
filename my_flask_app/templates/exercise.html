@@ -28,12 +28,14 @@
                 <p id="exerciseaddtext">Exercises:</p>
                 {% if exercises_data %}
                     {% for exercise in exercises_data %}
-                        <button id="exerciseinfo">{{ exercise["name"] }}</button>
-                        <button id="exerciseinfo">{{ exercise["name1"] }}</button>
-                        <button id="exerciseinfo">{{ exercise["name2"] }}</button>
-                        <button id="exerciseinfo">{{ exercise["name3"] }}</button>
-                        <button id="exerciseinfo">{{ exercise["name4"] }}</button>
-                        <button id="exerciseinfo">{{ exercise["name5"] }}</button>
+                        <form method="POST" action="{{ url_for('nutrition') }}">
+                            <button id="exerciseinfo">{{ exercise["name"] }}</button>
+                            <button id="exerciseinfo">{{ exercise["name1"] }}</button>
+                            <button id="exerciseinfo">{{ exercise["name2"] }}</button>
+                            <button id="exerciseinfo">{{ exercise["name3"] }}</button>
+                            <button id="exerciseinfo">{{ exercise["name4"] }}</button>
+                            <button id="exerciseinfo">{{ exercise["name5"] }}</button>
+                        </form>
                     {% endfor %}
                 {% else %}
                     <p class="error">{{ exercise_data }}</p>

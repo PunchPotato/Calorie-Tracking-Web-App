@@ -424,6 +424,11 @@ def exercise():
 
     return render_template('exercise.html', exercises_data=exercise_manager.exercises, message=exercise_manager.exercise_data)
 
+@app.route('/exerciseinfo', methods=['GET', 'POST'])
+def exerciseinfo():
+
+    return render_template('exerciseinfo.html')
+
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():  
     return render_template('profile.html')
