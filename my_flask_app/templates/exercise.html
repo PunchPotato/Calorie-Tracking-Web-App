@@ -28,7 +28,7 @@
                 <p id="exerciseaddtext">Exercises:</p>
                 {% if exercises_data %}
                     {% for exercise in exercises_data %}
-                        <form method="POST" action="{{ url_for('nutrition') }}">
+                        <form method="POST" action="{{ url_for('exerciseinfo') }}">
                             <button id="exerciseinfo">{{ exercise["name"] }}</button>
                             <button id="exerciseinfo">{{ exercise["name1"] }}</button>
                             <button id="exerciseinfo">{{ exercise["name2"] }}</button>

@@ -418,7 +418,7 @@ def exercise():
 
                 exercise_manager.update_exercise(name, name1, name2, name3, name4, name5)
                 
-                session['data'] = data
+                session['edata'] = data
             else:
                 exercise_manager.exercise_data = "No data available for the given query."
 
@@ -426,8 +426,8 @@ def exercise():
 
 @app.route('/exerciseinfo', methods=['GET', 'POST'])
 def exerciseinfo():
-
-    return render_template('exerciseinfo.html')
+    data = session.get('edata', [])
+    return render_template('exerciseinfo.html', exercise_data=data, exercise_data2=exercise_manager.exercise_data)
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():  
