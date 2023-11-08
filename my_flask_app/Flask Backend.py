@@ -309,17 +309,15 @@ class FoodManager:
                 self.foods.remove(food)
                 break
 
+# Create an instance of the class
+food_manager = FoodManager()
 
 @app.route('/delete_food/<food_name>', methods=['POST'])
 def delete_food(food_name):
-    global food_manager
     # Remove the food item and update the total calories
     food_manager.remove_food(food_name)
     # Redirect to the page where the list of foods is displayed
     return redirect(url_for('calories'))
-
-# Create an instance of the class
-food_manager = FoodManager()
 
 @app.route('/calories', methods=['GET', 'POST'])
 def calories():
@@ -364,7 +362,6 @@ def calories():
 
 @app.route('/nutrition', methods=['GET', 'POST'])
 def nutrition():
-    
     data = session.get('data', [])
     return render_template('nutrition.html', nutrition_data=data, food_data=food_manager.food_data)
 
