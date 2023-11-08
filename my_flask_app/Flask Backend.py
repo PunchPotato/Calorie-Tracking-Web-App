@@ -403,19 +403,19 @@ def exercise():
 
         if response.status_code == requests.codes.ok:
             json_data = response.text
-            data = json.loads(json_data)
+            edata = json.loads(json_data)
 
-            if data:
-                name = data[0]["name"]
-                name1 = data[1]["name"]
-                name2 = data[2]["name"]
-                name3 = data[3]["name"]
-                name4 = data[4]["name"]
-                name5 = data[5]["name"]
+            if edata:
+                name = edata[0]["name"]
+                name1 = edata[1]["name"]
+                name2 = edata[2]["name"]
+                name3 = edata[3]["name"]
+                name4 = edata[4]["name"]
+                name5 = edata[5]["name"]
 
                 exercise_manager.update_exercise(name, name1, name2, name3, name4, name5)
                 
-                session['edata'] = data
+                session['edata'] = edata
             else:
                 exercise_manager.exercise_data = "No data available for the given query."
 
@@ -423,8 +423,9 @@ def exercise():
 
 @app.route('/exerciseinfo', methods=['GET', 'POST'])
 def exerciseinfo():
-    data = session.get('edata', [])
-    return render_template('exerciseinfo.html', exercise_data=data, message=exercise_manager.exercise_data)
+    edata = session.get('edata', [])
+    app.logger.info(edata)
+    return render_template('exerciseinfo.html', exercise_data=edata, message=exercise_manager.exercise_data)
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():  
