@@ -424,7 +424,7 @@ def exercise():
 @app.route('/exerciseinfo', methods=['GET', 'POST'])
 def exerciseinfo():
     data = session.get('edata', [])
-    return render_template('exerciseinfo.html', exercise_data=data, exercise_data2=exercise_manager.exercise_data)
+    return render_template('exerciseinfo.html', exercise_data=data, message=exercise_manager.exercise_data)
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():  
