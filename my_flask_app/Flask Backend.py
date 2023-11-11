@@ -391,7 +391,7 @@ exercise_manager = ExerciseManager()
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():
     
-    data = []  
+    edata = []  
     
     if request.method == 'POST':
         query = request.form.get('exercisetextbox')
