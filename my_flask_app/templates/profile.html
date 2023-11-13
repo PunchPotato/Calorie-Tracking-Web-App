@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Flask Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
 </head>
 <body>
     <header class="header">
-    <img id="logo" src="https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/logo%202.png?raw=true" alt="logo">
-    <form action="{{ url_for('login') }}" method="post">
-        <button id="LogOutButton" type="submit">Log Out</button>
-    </form>
-    <form action="{{ url_for('calories') }}" method="post">
-        <button id="DietTrackingButton" type="submit">Diet Tracking</button>
-    </form>
+        <img id="logo" src="https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/logo%202.png?raw=true" alt="logo">
+        <form action="{{ url_for('login') }}" method="post">
+            <button id="LogOutButton" type="submit">Log Out</button>
+        </form>
+        <form action="{{ url_for('calories') }}" method="post">
+            <button id="DietTrackingButton" type="submit">Diet Tracking</button>
+        </form>
         <form action="{{ url_for('exercise') }}" method="post">
             <button id="ExerciseButton" type="submit">Exercises</button>
         </form>
         <form action="{{ url_for('profile') }}" method="post">
             <button id="ProfileButton" type="submit">Profile</button>
         </form>
-    </form>
     </header>
     
     <main>
         <div class="box_2">
-            <p>this is your profile</p>
+            <h1>Your Profile</h1>
+            <p>Welcome to your profile page. Here you can view and update your information.</p>
+            <ul>
+                <li><strong>Name:</strong> John Doe</li>
+                <li><strong>Email:</strong> john.doe@example.com</li>
+            </ul>
+        </div>
     </main>
     
     <footer>
