@@ -428,8 +428,39 @@ def exerciseinfo():
     return render_template('exerciseinfo.html', exercise_data=edata, message=exercise_manager.exercise_data)
 
 @app.route('/profile', methods=['GET', 'POST'])
-def profile():  
-    return render_template('profile.html')
+def profile():
+
+    try:
+        con = pymysql.connect(host='localhost', user='root', password=os.environ.get('MYSQL_PASSWORD'),
+                              database='mydatabase')
+        with con:
+            my_cursor = con.cursor()
+
+            query = "SELECT username, email FROM user_data"
+            my_cursor.execute(query)
+            results = my_cursor.fetchall()
+
+            profiles = []
+            for result in results:
+                username, email = result
+                profiles.append({'username': username, 'email': email})
+
+            return render_template('profile.html', profiles=profiles)
+
+    except pymysql.Error as e:
+        # Log the error for debugging purposes
+        app.logger.error(f"MySQL error: {e}")
+        # Render a user-friendly error message on the webpage
+        return render_template('profile.html', error="An error occurred while fetching data. Please try again later.")
+
+    finally:
+        try:
+            if my_cursor is not None:
+                my_cursor.close()
+            if con is not None:
+                con.close()
+        except pymysql.Error:
+            pass
 
 if __name__ == '__main__':
     app.run(debug=True)
