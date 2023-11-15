@@ -52,6 +52,56 @@ class UserAuthentication:
 def index():
     return render_template('index.html')
 
+def get_user_by_username(username):
+    connection = pymysql.connect(
+        host='localhost',
+        user='root',
+        password=os.environ.get('MYSQL_PASSWORD'),
+        database='mydatabase'
+    )
+
+    with connection:
+        with connection.cursor() as cursor:
+            query = 'SELECT id, username, email, password FROM user_data WHERE username = %s'
+            cursor.execute(query, (username,))
+            result = cursor.fetchone()
+
+            if result:
+                columns = [desc[0] for desc in cursor.description]
+                user_dict = dict(zip(columns, result))
+                
+                # Add an 'authenticated' key to indicate successful authentication
+                user_dict['authenticated'] = True
+                
+                return user_dict
+            else:
+                return None
+            
+def get_user_id_by_username(username):
+    user = get_user_by_username(username)
+    return user['id'] if user else None
+
+def get_user_by_id(user_id):
+    connection = pymysql.connect(
+        host='localhost',
+        user='root',
+        password=os.environ.get('MYSQL_PASSWORD'),
+        database='mydatabase'
+    )
+
+    with connection:
+        with connection.cursor() as cursor:
+            query = 'SELECT id, username, email FROM user_data WHERE id = %s'
+            cursor.execute(query, (user_id,))
+            result = cursor.fetchone()
+
+            if result:
+                columns = [desc[0] for desc in cursor.description]
+                user_dict = dict(zip(columns, result))
+                return user_dict
+            else:
+                return None
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -64,6 +114,8 @@ def login():
         
         auth = UserAuthentication()
         if auth.check_credentials(username_entered_text, password_entered_text):
+            user_id = get_user_id_by_username(username_entered_text)
+            session['user_id'] = user_id
             return redirect(url_for('calories'))
         else:
             return render_template('login.html', error_message="Invalid username or password")
@@ -429,38 +481,21 @@ def exerciseinfo():
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
+    user_id = session.get('user_id')
 
-    try:
-        con = pymysql.connect(host='localhost', user='root', password=os.environ.get('MYSQL_PASSWORD'),
-                              database='mydatabase')
-        with con:
-            my_cursor = con.cursor()
+    # Check if the user is logged in
+    if user_id:
+        # Retrieve user details based on the user ID
+        user = get_user_by_id(user_id)
 
-            query = "SELECT username, email FROM user_data"
-            my_cursor.execute(query)
-            results = my_cursor.fetchall()
-
-            profiles = []
-            for result in results:
-                username, email = result
-                profiles.append({'username': username, 'email': email})
-
-            return render_template('profile.html', profiles=profiles)
-
-    except pymysql.Error as e:
-        # Log the error for debugging purposes
-        app.logger.error(f"MySQL error: {e}")
-        # Render a user-friendly error message on the webpage
-        return render_template('profile.html', error="An error occurred while fetching data. Please try again later.")
-
-    finally:
-        try:
-            if my_cursor is not None:
-                my_cursor.close()
-            if con is not None:
-                con.close()
-        except pymysql.Error:
-            pass
+        # Check if the user exists
+        if user:
+            # Pass the user details to the profile template
+            return render_template('profile.html', username=user['username'], email=user['email'])
+        else:
+            return render_template('profile.html', error_message="User not found")
+    else:
+        return render_template('profile.html', error_message="User not logged in")
 
 if __name__ == '__main__':
     app.run(debug=True)

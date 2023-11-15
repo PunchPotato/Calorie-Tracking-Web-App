@@ -26,21 +26,8 @@
     <main>
         <div class="box_2">
             <h1>Your Profile</h1>
-            <p>Welcome to your profile page. Here you can view and update your information.</p>
-            <ul>
-                {% if error %}
-                    <p>{{ error }}</p>
-                {% else %}
-                    <ul>
-                        {% for profile in profiles %}
-                            <li>
-                                <strong>Username:</strong> {{ profile.username }}, 
-                                <strong>Email:</strong> {{ profile.email }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </ul>
+            <h1>Welcome to your profile, {{ username }}</h1>
+            <p>Email: {{ email }}</p>
         </div>
     </main>
     
