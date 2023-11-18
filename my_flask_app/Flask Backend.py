@@ -438,6 +438,17 @@ class ExerciseManager:
         self.exercises = []
         self.exercise_data = ""
 
+    def remove_exercise(self, name):
+        for exercise in self.exercises:
+            if exercise["name"] == name:
+                self.exercises.remove(exercise)
+                break
+
+@app.route('/delete_exercise/<exercise_name>', methods=['POST'])
+def delete_exercise(exercise_name):
+    exercise_manager.remove_exercise(exercise_name)
+    return redirect(url_for('exercise'))
+
 exercise_manager = ExerciseManager()
 
 @app.route('/exercise', methods=['GET', 'POST'])
@@ -468,7 +479,6 @@ def exercise():
                 exercise_manager.update_exercise(name, name1, name2, name3, name4, name5)
                 
                 session['edata'] = edata
-                app.logger.info(edata)
             else:
                 exercise_manager.exercise_data = "No data available for the given query."
 

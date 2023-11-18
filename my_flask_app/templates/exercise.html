@@ -36,6 +36,9 @@
                             <button id="exerciseinfo">{{ exercise["name4"] }}</button>
                             <button id="exerciseinfo">{{ exercise["name5"] }}</button>
                         </form>
+                        <form method="post" action="{{ url_for('delete_exercise', exercise_name=exercises_data[0]['name']) }}" style="display:inline;">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
                     {% endfor %}
                 {% else %}
                     <p class="error">{{ exercise_data }}</p>
