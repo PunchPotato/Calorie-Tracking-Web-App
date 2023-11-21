@@ -420,7 +420,8 @@ def nutrition():
 class ExerciseManager:
     def __init__(self):
         self.exercises = []
-
+        self.exercise_data = ""
+        
     def update_exercise(self, name, name1, name2, name3, name4, name5):
         exercise_item = {
             "name": name,
@@ -430,10 +431,12 @@ class ExerciseManager:
             "name4": name4,
             "name5": name5,
         }
+
         self.exercises.append(exercise_item)
 
-    def clear_exercises(self):
+    def clear_data(self):
         self.exercises = []
+        self.exercise_data = ""
 
     def remove_exercise(self, name):
         for exercise in self.exercises:
@@ -441,16 +444,17 @@ class ExerciseManager:
                 self.exercises.remove(exercise)
                 break
 
-exercise_manager = ExerciseManager()
-
 @app.route('/delete_exercise/<exercise_name>', methods=['POST'])
 def delete_exercise(exercise_name):
     exercise_manager.remove_exercise(exercise_name)
     return redirect(url_for('exercise'))
 
+exercise_manager = ExerciseManager()
+
 @app.route('/exercise', methods=['GET', 'POST'])
 def exercise():
-    edata = []
+    
+    edata = []  
     
     if request.method == 'POST':
         query = request.form.get('exercisetextbox')
@@ -465,28 +469,25 @@ def exercise():
             edata = json.loads(json_data)
 
             if edata:
-                try:
-                    name = edata[0]["name"]
-                    name1 = edata[1]["name"]
-                    name2 = edata[2]["name"]
-                    name3 = edata[3]["name"]
-                    name4 = edata[4]["name"]
-                    name5 = edata[5]["name"]
+                name = edata[0]["name"]
+                name1 = edata[1]["name"]
+                name2 = edata[2]["name"]
+                name3 = edata[3]["name"]
+                name4 = edata[4]["name"]
+                name5 = edata[5]["name"]
 
-                    exercise_manager.update_exercise(name, name1, name2, name3, name4, name5)
-                    session['edata'] = edata
-                except IndexError:
-                    return render_template('exercise.html', exercises_data=exercise_manager.exercises, message="Not enough data returned.")
+                exercise_manager.update_exercise(name, name1, name2, name3, name4, name5)
+                
+                session['edata'] = edata
             else:
-                exercise_manager.clear_exercises()
-                return render_template('exercise.html', exercises_data=exercise_manager.exercises, message="No data available for the given query.")
+                exercise_manager.exercise_data = "No data available for the given query."
 
-    return render_template('exercise.html', exercises_data=exercise_manager.exercises, message="")
+    return render_template('exercise.html', exercises_data=exercise_manager.exercises, message=exercise_manager.exercise_data)
 
 @app.route('/exerciseinfo', methods=['GET', 'POST'])
 def exerciseinfo():
     edata = session.get('edata', [])
-    return render_template('exerciseinfo.html', exercise_data=edata, message="")
+    return render_template('exerciseinfo.html', exercise_data=edata, message=exercise_manager.exercise_data)
 
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
