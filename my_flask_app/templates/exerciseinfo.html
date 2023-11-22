@@ -21,19 +21,21 @@
         </form>
     </header>
     <main>
-        <div class="box">
-            <form action="{{ url_for('exercise') }}" method="post">
-                <button id="BackButton" type="submit">Back</button>
-            </form>
-            {% if exercise_data %}
-                {% for key, value in exercise_data.items() %}
-                    <p id="exercisedata"><strong>{{ key|title }}:</strong> {{ value }}</p>
-                {% endfor %}
-            {% elif message %}
-                <p class="error">{{ message }}</p>
-            {% else %}
-                <p class="error">Unknown error.</p>
-            {% endif %}
+        <div class="container">
+            <div class="expanding-box">
+                    <form action="{{ url_for('exercise') }}" method="post">
+                        <button id="BackButton" type="submit">Back</button>
+                    </form>
+                    {% if exercise_data %}
+                        {% for key, value in exercise_data.items() %}
+                            <p id="exercisedata"><strong>{{ key|title }}:</strong> {{ value }}</p>
+                        {% endfor %}
+                    {% elif message %}
+                        <p class="error">{{ message }}</p>
+                    {% else %}
+                        <p class="error">Unknown error.</p>
+                    {% endif %}
+            </div>
         </div>
     </main>
     <footer>
