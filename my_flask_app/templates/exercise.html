@@ -29,14 +29,14 @@
                 {% if exercises_data %}
                     {% for exercise in exercises_data %}
                         <form method="POST" action="{{ url_for('exerciseinfo') }}">
-                            <button id="exerciseinfo">{{ exercise["name"] }}</button>
-                            <button id="exerciseinfo">{{ exercise["name1"] }}</button>
-                            <button id="exerciseinfo">{{ exercise["name2"] }}</button>
-                            <button id="exerciseinfo">{{ exercise["name3"] }}</button>
-                            <button id="exerciseinfo">{{ exercise["name4"] }}</button>
-                            <button id="exerciseinfo">{{ exercise["name5"] }}</button>
+                            <button type="submit" id="exerciseinfo" name="selected_exercise" value="{{ exercise['name'] }}">{{ exercise["name"] }}</button>
+                            <button type="submit" id="exerciseinfo" name="selected_exercise" value="{{ exercise['name1'] }}">{{ exercise["name1"] }}</button>
+                            <button type="submit" id="exerciseinfo" name="selected_exercise" value="{{ exercise['name2'] }}">{{ exercise["name2"] }}</button>
+                            <button type="submit" id="exerciseinfo" name="selected_exercise" value="{{ exercise['name3'] }}">{{ exercise["name3"] }}</button>
+                            <button type="submit" id="exerciseinfo" name="selected_exercise" value="{{ exercise['name4'] }}">{{ exercise["name4"] }}</button>
+                            <button type="submit" id="exerciseinfo" name="selected_exercise" value="{{ exercise['name5'] }}">{{ exercise["name5"] }}</button>
                         </form>
-                        <form method="post" action="{{ url_for('delete_exercise', exercise_name=exercises_data[0]['name']) }}" style="display:inline;">
+                        <form method="post" action="{{ url_for('delete_exercise', exercise_name=exercise['name']) }}" style="display:inline;">
                             <button type="submit" class="delete-button">Clear</button>
                         </form>
                     {% endfor %}

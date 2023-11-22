@@ -486,9 +486,19 @@ def exercise():
 
 @app.route('/exerciseinfo', methods=['GET', 'POST'])
 def exerciseinfo():
-    edata = session.get('edata', [])
-    return render_template('exerciseinfo.html', exercise_data=edata, message=exercise_manager.exercise_data)
+    selected_exercise = request.form.get('selected_exercise')
 
+    if selected_exercise:
+        exdata = session.get('edata', [])
+        app.logger.info(exdata)
+        selected_data = next((item for item in exdata if item["name"] == selected_exercise), None)
+        if selected_data:
+            return render_template('exerciseinfo.html', exercise_data=selected_data, message=None)
+        else:
+            return render_template('exerciseinfo.html', exercise_data=None, message="No data available for the selected exercise.")
+    else:
+        return render_template('exerciseinfo.html', exercise_data=None, message="No exercise selected.")
+    
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     user_id = session.get('user_id')
