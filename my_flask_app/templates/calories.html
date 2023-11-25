@@ -43,9 +43,10 @@
         </div>
             <div class="search_food">
                 <form method="POST" action="{{ url_for('calories') }}">
-                    <button id="FoodButton" type="submit">Add Food</button>
+                    <button id="FoodButton" name="FoodButton" type="submit">Add Food</button>
                     <input id="foodtextbox"type="text" name="foodtextbox" placeholder="Search Food Here!">
             </form>
+            </div>
         </div>
     </main>
     

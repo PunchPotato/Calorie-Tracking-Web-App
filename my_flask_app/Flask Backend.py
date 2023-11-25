@@ -375,7 +375,7 @@ def delete_food(food_name):
 def calories():
     data = []  
     
-    if request.method == 'POST':
+    if request.method == 'POST' and 'FoodButton' in request.form:
         query = request.form.get('foodtextbox')
         api_key = os.environ.get('MY_API_KEY')
         api_url = f'https://api.api-ninjas.com/v1/nutrition?query={query}'
