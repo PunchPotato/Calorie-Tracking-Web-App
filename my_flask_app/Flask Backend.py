@@ -380,7 +380,6 @@ def calories():
         api_key = os.environ.get('MY_API_KEY')
         api_url = f'https://api.api-ninjas.com/v1/nutrition?query={query}'
         headers = {'X-Api-Key': api_key}
-
         response = requests.get(api_url, headers=headers)
 
         if response.status_code == requests.codes.ok:
@@ -433,10 +432,6 @@ class ExerciseManager:
         }
 
         self.exercises.append(exercise_item)
-
-    def clear_data(self):
-        self.exercises = []
-        self.exercise_data = ""
 
     def remove_exercise(self, name):
         for exercise in self.exercises:
