@@ -366,15 +366,13 @@ food_manager = FoodManager()
 
 @app.route('/delete_food/<food_name>', methods=['POST'])
 def delete_food(food_name):
-    # Remove the food item and update the total calories
     food_manager.remove_food(food_name)
-    # Redirect to the page where the list of foods is displayed
     return redirect(url_for('calories'))
 
 @app.route('/calories', methods=['GET', 'POST'])
 def calories():
-    data = []  
-    
+    data = session.get('data', [])  # Retrieve existing data from the session
+
     if request.method == 'POST' and 'FoodButton' in request.form:
         query = request.form.get('foodtextbox')
         api_key = os.environ.get('MY_API_KEY')
@@ -384,28 +382,30 @@ def calories():
 
         if response.status_code == requests.codes.ok:
             json_data = response.text
-            data = json.loads(json_data)
+            new_data = json.loads(json_data)
 
-            if data:
-                name = data[0]["name"]
-                calories = data[0]["calories"]
-                serving_size_g = data[0]["serving_size_g"]
-                fat_total_g = data[0]["fat_total_g"]
-                fat_saturated_g = data[0]["fat_saturated_g"]
-                protein_g = data[0]["protein_g"]
-                sodium_mg = data[0]["sodium_mg"]
-                potassium_mg = data[0]["potassium_mg"]
-                cholesterol_mg = data[0]["cholesterol_mg"]
-                carbohydrates_total_g = data[0]["carbohydrates_total_g"]
-                fiber_g = data[0]["fiber_g"]
-                sugar_g = data[0]["sugar_g"]
+            if new_data:
+                name = new_data[0]["name"]
+                calories = new_data[0]["calories"]
+                serving_size_g = new_data[0]["serving_size_g"]
+                fat_total_g = new_data[0]["fat_total_g"]
+                fat_saturated_g = new_data[0]["fat_saturated_g"]
+                protein_g = new_data[0]["protein_g"]
+                sodium_mg = new_data[0]["sodium_mg"]
+                potassium_mg = new_data[0]["potassium_mg"]
+                cholesterol_mg = new_data[0]["cholesterol_mg"]
+                carbohydrates_total_g = new_data[0]["carbohydrates_total_g"]
+                fiber_g = new_data[0]["fiber_g"]
+                sugar_g = new_data[0]["sugar_g"]
 
                 # Call the update_food method to add the food item
                 food_manager.update_food(name, calories, serving_size_g, fat_total_g, fat_saturated_g,
                                          protein_g, sodium_mg, potassium_mg, cholesterol_mg,
                                          carbohydrates_total_g, fiber_g, sugar_g)
                 
-                session['data'] = data
+                # Append the new data to the existing data
+                data.append(new_data[0])
+                session['data'] = data  # Update the session with the combined data
             else:
                 food_manager.food_data = "No data available for the given query."
 

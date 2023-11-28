@@ -30,12 +30,14 @@
             <div class="expanding-box">
                 <p id="foodaddtext">Tracked Food:</p>
                 {% if nutrition_data %}
-                    <form method="POST" action="{{ url_for('nutrition') }}">
-                        <button id="caloriesinfo">{{ nutrition_data[0]["name"] }} - Calories: {{ nutrition_data[0]["calories"] }}</button>
-                    </form>
-                    <form method="post" action="{{ url_for('delete_food', food_name=nutrition_data[0]['name']) }}" style="display:inline;">
-                        <button type="submit" class="delete-button">Delete</button>
-                    </form>
+                    {% for food_item in nutrition_data %}
+                        <form method="POST" action="{{ url_for('nutrition') }}">
+                            <button id="caloriesinfo">{{ food_item["name"] }} - Calories: {{ food_item["calories"] }}</button>
+                        </form>
+                        <form method="post" action="{{ url_for('delete_food', food_name=food_item['name']) }}" style="display:inline;">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                    {% endfor %}
                 {% else %}
                     <p class="error">{{ food_data }}</p>
                 {% endif %}
