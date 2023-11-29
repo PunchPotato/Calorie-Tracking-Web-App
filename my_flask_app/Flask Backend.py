@@ -371,12 +371,13 @@ food_manager = FoodManager()
 
 @app.route('/delete_food/<food_name>', methods=['POST'])
 def delete_food(food_name):
-    food_manager.remove_food(food_name)
+    if request.method == 'POST':
+        food_manager.remove_food(food_name)
     return redirect(url_for('calories'))
 
 @app.route('/calories', methods=['GET', 'POST'])
 def calories():
-    data = session.get('data', [])  # Retrieve existing data from the session
+    data = session.get('data', [])
 
     if request.method == 'POST' and 'FoodButton' in request.form:
         query = request.form.get('foodtextbox')

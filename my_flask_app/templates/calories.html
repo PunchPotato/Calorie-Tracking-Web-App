@@ -34,7 +34,7 @@
                         <form method="POST" action="{{ url_for('nutrition') }}">
                             <button type="submit" id="caloriesinfo" name="caloriesinfo" value="{{ food_item['name'] }}">{{ food_item["name"] }} - Calories: {{ food_item["calories"] }}</button>
                         </form>
-                        <form method="post" action="{{ url_for('delete_food', food_name=food_item['name']) }}" style="display:inline;">
+                        <form method="POST" action="{{ url_for('delete_food', food_name=food_item['name']) }}" style="display:inline;">
                             <button type="submit" class="delete-button">Delete</button>
                         </form>
                     {% endfor %}
