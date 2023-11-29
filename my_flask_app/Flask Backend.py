@@ -355,11 +355,16 @@ class FoodManager:
         self.total_calories += calories
 
     def remove_food(self, name):
-        for food in self.foods:
-            if food["name"] == name:
-                self.total_calories -= food["calories"]
-                self.foods.remove(food)
-                break
+        updated_foods = [food for food in self.foods if food["name"] != name]
+
+        # Find the removed food item to update total calories
+        removed_food = next((food for food in self.foods if food["name"] == name), None)
+
+        if removed_food:
+            self.total_calories -= removed_food["calories"]
+
+        # Update the foods list with the modified list
+        self.foods = updated_foods
 
 # Create an instance of the class
 food_manager = FoodManager()
@@ -413,8 +418,18 @@ def calories():
 
 @app.route('/nutrition', methods=['GET', 'POST'])
 def nutrition():
-    data = session.get('data', [])
-    return render_template('nutrition.html', nutrition_data=data, food_data=food_manager.food_data)
+    calories_info = request.form.get('caloriesinfo')
+
+    if calories_info:
+        ndata = session.get('data', [])
+        app.logger.info(ndata)
+        selected_data = next((item for item in ndata if item["name"] == calories_info), None)
+        if selected_data:
+            return render_template('nutrition.html', nutrition_data=selected_data, message=None)
+        else:
+            return render_template('nutrition.html', nutrition_data=None, message="No data available for the selected food.")
+    else:
+        return render_template('nutrition.html', nutrition_data=None, message="No food selected.")
 
 class ExerciseManager:
     def __init__(self):
@@ -485,7 +500,6 @@ def exerciseinfo():
 
     if selected_exercise:
         exdata = session.get('edata', [])
-        app.logger.info(exdata)
         selected_data = next((item for item in exdata if item["name"] == selected_exercise), None)
         if selected_data:
             return render_template('exerciseinfo.html', exercise_data=selected_data, message=None)
