@@ -355,18 +355,15 @@ class FoodManager:
         self.total_calories += calories
 
     def remove_food(self, name):
-        updated_foods = [food for food in self.foods if food["name"] != name]
+        for food in self.foods:
+            if food["name"] == name:
+                self.total_calories -= food["calories"]
+                try:
+                    self.foods.remove(food)
+                except ValueError:
+                    app.logger.info(food)
+                break
 
-        # Find the removed food item to update total calories
-        removed_food = next((food for food in self.foods if food["name"] == name), None)
-
-        if removed_food:
-            self.total_calories -= removed_food["calories"]
-
-        # Update the foods list with the modified list
-        self.foods = updated_foods
-
-# Create an instance of the class
 food_manager = FoodManager()
 
 @app.route('/delete_food/<food_name>', methods=['POST'])
