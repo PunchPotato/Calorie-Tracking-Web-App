@@ -360,9 +360,12 @@ class FoodManager:
                 self.total_calories -= food["calories"]
                 try:
                     self.foods.remove(food)
+                    session['data'] = self.foods
+                    return food["name"]
                 except ValueError:
                     app.logger.info(food)
                 break
+        return None
 
 food_manager = FoodManager()
 
