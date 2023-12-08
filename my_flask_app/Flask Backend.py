@@ -1,3 +1,4 @@
+from datetime import timedelta
 from email.mime.text import MIMEText
 import json
 import re
@@ -107,6 +108,7 @@ def login():
     if request.method == 'POST':
         username_entered_text = request.form.get('usernametextbox')
         password_entered_text = request.form.get('passwordtextbox')
+        remember_me = request.form.get('checkbox_name')
         
         if username_entered_text == '' or password_entered_text == '':
             error_message = "Field cannot be empty"
@@ -116,6 +118,11 @@ def login():
         if auth.check_credentials(username_entered_text, password_entered_text):
             user_id = get_user_id_by_username(username_entered_text)
             session['user_id'] = user_id
+
+            if remember_me:
+                session.permanent = True
+                app.permanent_session_lifetime = timedelta(days=7)
+
             return redirect(url_for('calories'))
         else:
             return render_template('login.html', error_message="Invalid username or password")
