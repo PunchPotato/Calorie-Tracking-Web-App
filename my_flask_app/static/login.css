@@ -23,7 +23,7 @@ header {
 
 #logo {
     width: 14%;
-    height: 12%;
+    height: auto;
     position: absolute;
     top: 1%;
     left: 5%;

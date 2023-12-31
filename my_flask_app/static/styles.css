@@ -9,20 +9,21 @@ body {
 }
 
 header {
-    width: 99%;
-    height: 100%;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 25%;
+    position: relative;
     background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/home%20page%206.png?raw=true');
     background-size: cover;
 }
 
+@media only screen and (max-width: 400px) {
+    header {
+        padding: 50px; /* Adjusted padding for smaller screens */
+    }
+}
+
 #logo {
     width: 14%;
-    height: 12%;
+    height: auto;
     position: absolute;
     top: 2%;
     left: 10%;
@@ -39,7 +40,7 @@ header {
     border: 1px transparent;
     color: aliceblue;
     top: 5%;
-    right: 10%;
+    right: 5%;
     width: 15%;
     height: 5vh;
     background-color: rgba(0, 0, 0, 0.2);
@@ -52,48 +53,55 @@ header {
 
 #download_app {
     position: absolute;
-    left: 15%;
-    top: 70%;
+    left: 5%;
+    top: 40%;
     width: 10%;
-    height: 15vh;
+    height: auto;
+}
+
+@media only screen and (max-width: 400px) {
+    #download_app {
+        top: 50%; /* Adjusted top percentage for smaller screens */
+    }
 }
 
 #barbell {
     position: absolute;
-    right: 20%;
+    right: 5%;
     top: 90vh;
     width: 15%;
-    height: 30%;
+    height: auto;
 }
 
 #fork {
     position: absolute;
-    left: 19%;
+    left: 5%;
     top: 92vh;
     width: 15%;
-    height: 30%;
+    height: auto;
 }
 
-#text1 {
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 4vh;
-    position: absolute;
-    right: 15%;
-    top: 120vh;
-    width: 20%;
-    height: 15vh;
-}
-
+#text1,
 #text2 {
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 4vh;
     position: absolute;
-    left: 19%;
-    top: 120vh;
-    width: 20%;
+    width: 40%;
     height: 15vh;
+    text-align: center;
+}
+
+#text1 {
+    right: 5%;
+    top: 120vh;
+    font-size: 4vw
+}
+
+#text2 {
+    left: 5%;
+    top: 120vh;
+    font-size: 4vw
 }
 
 main {
@@ -106,7 +114,7 @@ main {
 footer {
     color: rgb(0, 0, 0);
     text-align: center;
-    position: absolute;
-    bottom: -50%;
-    right: 2%;
+    position: relative;
+    margin-top: 2rem;
+    bottom: -70%;
 }
