@@ -59,9 +59,9 @@ header {
     height: auto;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
     #download_app {
-        top: 50%; /* Adjusted top percentage for smaller screens */
+        top: 20%; /* Adjusted top percentage for smaller screens */
     }
 }
 
