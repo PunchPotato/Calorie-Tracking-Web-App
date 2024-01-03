@@ -53,9 +53,9 @@ header {
 
 #download_app {
     position: absolute;
-    left: 5%;
-    top: 40%;
-    width: 10%;
+    left: 10%;
+    top:65vh; /* Set initial top value to 0 */
+    width: 20%;
     height: auto;
 }
 
@@ -114,7 +114,8 @@ main {
 footer {
     color: rgb(0, 0, 0);
     text-align: center;
-    position: relative;
+    position: absolute;
     margin-top: 2rem;
-    bottom: -70%;
+    bottom: -60vh;
+    right: 0vh;
 }
