@@ -54,29 +54,59 @@ header {
 #download_app {
     position: absolute;
     left: 10%;
-    top:65vh; /* Set initial top value to 0 */
+    top:65vh;
     width: 20%;
     height: auto;
 }
 
+@media only screen and (max-width: 990px) {
+    #download_app {
+        top: 40%;
+    }
+
+    header{
+        padding: 25%;
+    }
+    
+    #barbell{
+        position: absolute;
+        top: 30%;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    #download_app {
+        top: 20%;
+    }
+}
+
 @media only screen and (max-width: 420px) {
     #download_app {
-        top: 20%; /* Adjusted top percentage for smaller screens */
+        position: absolute;
+        top: 17%;
+    }
+
+    #barbell{
+        position: absolute; /* Add this line */
+        right: 10%;
+        top: 30%; /* Change this back to 30% */
+        width: 15%;
+        height: auto;
     }
 }
 
 #barbell {
     position: absolute;
-    right: 5%;
-    top: 90vh;
+    right: 10%;
+    top: 100%;
     width: 15%;
     height: auto;
 }
 
 #fork {
     position: absolute;
-    left: 5%;
-    top: 92vh;
+    left: 10%;
+    top: 100%;
     width: 15%;
     height: auto;
 }
