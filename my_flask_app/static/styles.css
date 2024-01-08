@@ -68,15 +68,26 @@ header {
         padding: 25%;
     }
     
-    #barbell{
-        position: absolute;
-        top: 30%;
+    #barbell,#fork{
+        transform: translate(0%, -250%);
+    }
+
+    #text1,#text2{
+        transform: translate(0%, -200%);
     }
 }
 
 @media only screen and (max-width: 660px) {
     #download_app {
         top: 20%;
+    }
+    
+    #barbell,#fork{
+        transform: translate(0%, -600%);
+    }
+
+    #text1,#text2{
+        transform: translate(0%, -450%);
     }
 }
 
@@ -86,12 +97,12 @@ header {
         top: 17%;
     }
 
-    #barbell{
-        position: absolute; /* Add this line */
-        right: 10%;
-        top: 30%; /* Change this back to 30% */
-        width: 15%;
-        height: auto;
+    #barbell,#fork{
+        transform: translate(0%, -1000%);
+    }
+    
+    #text1,#text2{
+        transform: translate(0%, -550%);
     }
 }
 
