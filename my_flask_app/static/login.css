@@ -10,13 +10,8 @@ body {
 }
 
 header {
-    width: 98%;
-    height: 100%;
-    padding: 1%;
-    position: absolute;
-    top: 52%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 25%;
+    position: relative;
     background-image: url('https://github.com/PunchPotato/Calorie-Tracking-Web-App/blob/main/images/login%20page%203.png?raw=true');
     background-size: cover;
 }
@@ -38,10 +33,8 @@ header {
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 5vw;
-    position: absolute;
-    top: 23%;
-    left: 53%;
-    transform: translateX(-50%);
+    position: static;
+    transform: translate(46%, -620%);
 }
 
 #username {

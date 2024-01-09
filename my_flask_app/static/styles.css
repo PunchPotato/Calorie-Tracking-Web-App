@@ -59,53 +59,6 @@ header {
     height: auto;
 }
 
-@media only screen and (max-width: 990px) {
-    #download_app {
-        top: 40%;
-    }
-
-    header{
-        padding: 25%;
-    }
-    
-    #barbell,#fork{
-        transform: translate(0%, -250%);
-    }
-
-    #text1,#text2{
-        transform: translate(0%, -200%);
-    }
-}
-
-@media only screen and (max-width: 660px) {
-    #download_app {
-        top: 20%;
-    }
-    
-    #barbell,#fork{
-        transform: translate(0%, -600%);
-    }
-
-    #text1,#text2{
-        transform: translate(0%, -450%);
-    }
-}
-
-@media only screen and (max-width: 420px) {
-    #download_app {
-        position: absolute;
-        top: 17%;
-    }
-
-    #barbell,#fork{
-        transform: translate(0%, -1000%);
-    }
-    
-    #text1,#text2{
-        transform: translate(0%, -550%);
-    }
-}
-
 #barbell {
     position: absolute;
     right: 10%;
@@ -159,4 +112,52 @@ footer {
     margin-top: 2rem;
     bottom: -60vh;
     right: 0vh;
+}
+
+
+@media only screen and (max-width: 990px) {
+    #download_app {
+        top: 40%;
+    }
+
+    header{
+        padding: 25%;
+    }
+    
+    #barbell,#fork{
+        transform: translate(0%, -250%);
+    }
+
+    #text1,#text2{
+        transform: translate(0%, -200%);
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    #download_app {
+        top: 20%;
+    }
+    
+    #barbell,#fork{
+        transform: translate(0%, -600%);
+    }
+
+    #text1,#text2{
+        transform: translate(0%, -450%);
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #download_app {
+        position: absolute;
+        top: 17%;
+    }
+
+    #barbell,#fork{
+        transform: translate(0%, -1000%);
+    }
+    
+    #text1,#text2{
+        transform: translate(0%, -550%);
+    }
 }
